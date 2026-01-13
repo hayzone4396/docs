@@ -17,7 +17,7 @@ export default defineConfig({
     // 继承博客主题(@sugarat/theme)
     extends: blogTheme,
     lang: 'zh-cn',
-    title: 'Hayzone',
+    title: '| 码间拾光',
     description: '为学应尽毕生力，攀高须贵少年时',
     lastUpdated: false,
     // 详见：https://vitepress.dev/zh/reference/site-config#head

@@ -1,83 +1,154 @@
-<h1 align="center"> VitePress @sugarat/theme </h1>
+# 码间拾光 ✨
 
-<p align="center">
-简约风的 <a href="https://theme.sugarat.top"  target="_blank"target="_blank">VitePress 博客主题</a> 示例运行项目。
-</p>
+> 在代码与文字之间，拾取那些闪光的瞬间
 
-<p align="center">
-    <a href="https://atqq.github.io/vitepress-blog-sugar-template/" target="_blank">GitHub Pages Demo</a>
-</p>
+基于 VitePress 构建的个人技术博客，记录 IT 旅程中的技术沉淀、文学摘录与人生感悟。
 
-## Usage
+## 📖 博客简介
 
-先安装 `pnpm`
+**码间拾光**是一个专注于技术与人文的个人博客站点。这里不仅有代码的智慧，更有文字的温度。
 
-```sh
-npm i -g pnpm
+在这里，你可以找到：
+- 💻 **技术沉淀** - IT 软件开发的技术总结与实践经验
+- 📚 **文学摘录** - 精选的好文好句、诗词歌赋
+- 💭 **人生感悟** - 工作生活中的思考与领悟
+- 🎯 **面试宝典** - 前端、后端、架构等技术面试总结
+
+## ✨ 特色亮点
+
+- 🚀 **极速体验** - 基于 VitePress + Vite 构建，秒开速度
+- 📝 **Markdown 驱动** - 专注内容创作，简洁高效
+- 🎨 **优雅设计** - 响应式布局，完美支持多端访问
+- 🔍 **快速检索** - 内置全文搜索，快速定位内容
+- 🌙 **深色模式** - 保护眼睛，夜间阅读更舒适
+- 📱 **移动友好** - 随时随地，想看就看
+
+## 📚 内容导航
+
+### 💻 技术专栏
+- **面试题库** - Vue、React、Node.js、TypeScript 等
+- **技术指南** - 从入门到进阶的完整教程
+- **架构设计** - 设计模式、微服务、系统设计
+- **工具集合** - Git、Webpack、Vite 等开发工具
+
+### 📖 好文收集
+- **诗词雅韵** - 古典诗词的韵味与情怀
+- **美文佳句** - 触动人心的文字片段
+- **其他文章** - 散文、随笔与人生思考
+
+### 🎯 组件与 API
+- **组件库** - 常用组件的封装与使用
+- **API 参考** - 核心接口与工具函数
+- **最佳实践** - 实战中的经验总结
+
+## 🚀 快速开始
+
+### 环境准备
+
+确保你的开发环境已安装：
+- Node.js 18.0 或更高版本
+- npm 或 yarn 包管理器
+
+### 本地开发
+
+```bash
+# 克隆项目
+git clone <repository-url>
+cd vitepress-project
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run docs:dev
 ```
 
-安装依赖
+访问 http://localhost:5173 即可预览。
 
-```sh
-pnpm install
+### 构建部署
+
+```bash
+# 构建生产版本
+npm run docs:build
+
+# 本地预览构建产物
+npm run docs:preview
 ```
 
-开发启动
+构建产物位于 `docs/.vitepress/dist` 目录。
 
-```sh
-pnpm dev
-```
+## 🌐 部署方式
 
-构建
+### 自动部署（推荐）
+- **GitHub Pages** - 推送到 main 分支自动触发部署
+- 通过 GitHub Actions 自动构建和发布
 
-```sh
-pnpm build
-```
+### 手动部署（备用）
+- **Netlify** - 支持拖拽式部署
+- 将 `docs/.vitepress/dist` 目录拖入 Netlify 即可
 
-预览产物
+## 🛠️ 技术栈
 
-```sh
-pnpm serve
-```
+| 技术 | 说明 |
+|------|------|
+| **VitePress** | 静态站点生成器 |
+| **Vue 3** | 渐进式 JavaScript 框架 |
+| **Vite** | 下一代前端构建工具 |
+| **Markdown** | 轻量级标记语言 |
 
-## Github Pages 部署
+## 📝 内容创作
 
-① Github Pages 开启 Git Actions 部署支持
+### 添加新文章
 
-![](https://img.cdn.sugarat.top/mdImg/sugar/8a2454c628d0e2abcc7a0451ddd7d2dc)
+1. 在 `docs` 目录下创建 Markdown 文件
+2. 在 `docs/.vitepress/config.js` 中添加导航和侧边栏配置
+3. 使用 Markdown 编写内容
 
-② 复制文件 `.github/workflows/deploy.yml` 到自己的项目相同目录下
+### Markdown 增强
 
-示例项目已包含，可以直接进行下一步
+支持以下 Markdown 扩展功能：
+- 代码高亮
+- 自定义容器
+- 表格与列表
+- 数学公式
+- 图表绘制
 
-③ 修改 `docs/.vitepress/config.mts` 里的构建配置
+## 🎯 未来规划
 
-`base` 改为 `"/仓库名/"` 即可
+- [ ] 增加评论系统
+- [ ] 集成数据统计
+- [ ] 优化 SEO
+- [ ] 添加 RSS 订阅
+- [ ] 文章标签分类
+- [ ] 友情链接模块
 
-```ts
-// 省略无关代码
-const base = '/vitepress-blog-sugar-template/'
-export default defineConfig({
-  base,
-})
-```
+## 💡 灵感来源
 
-④ 推送 `main` 分支即可
+> "在忙碌的代码世界里，不要忘记停下来拾取那些美好的瞬间。"
 
-需要进一步修改部署和构建配置，详见`deploy.yml` 文件。
+这个博客的名字"码间拾光"寓意着：
+- **码** - 代码、编程、技术
+- **间** - 间隙、片刻、时光
+- **拾光** - 拾取光芒、捕捉灵感
 
-## Gitee Pages 部署
+在代码与代码之间，在工作与生活之间，拾取那些闪光的技术、文字和思考。
 
-① 按照 [SPA](https://help.gitee.com/services/gitee-pages/spa-support) 要求添加 `.spa` 文件在`docs/public` 目录下
+## 👤 关于作者
 
-示例项目已包含，可以直接进行下一步
+**小刘 (hayzone)**
 
-② 参照 `Usage` 部分构建代码
+一个热爱技术与文字的开发者，在代码的世界里寻找诗意，在文学的海洋中汲取力量。
 
-③ 推送构建后的页面资源到部署文档的分支
+## 📄 许可证
 
-例如`gh-pages`
+MIT License
 
-④ 参照[文档](https://help.gitee.com/services/gitee-pages/intro)选择分支和目录进行部署
+Copyright © 2026 年 1 月至今 小刘 (hayzone)
 
-*Gitee Pages 需要实名才能使用，同时需要人工审核。*
+## 🤝 贡献
+
+欢迎提出建议和反馈，让这个博客变得更好！
+
+---
+
+**好好生活，慢慢相遇** ❤️ by 小刘

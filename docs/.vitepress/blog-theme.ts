@@ -5,12 +5,13 @@ import { getThemeConfig } from '@sugarat/theme/node'
 // 开启RSS支持（RSS配置）
 // import type { Theme } from '@sugarat/theme'
 
-const baseUrl = 'https://sloving.top'
+// const baseUrl = 'https://sloving.top'
+const baseUrl = ''
 const RSS: Theme.RSSOptions = {
    title: 'Hayzone\'s Blog',
    baseUrl,
    copyright: 'Copyright (c) 2019-present, Hayzone',
-   description: '来日放榜簪花在春衫，一朝等闲驰马到江南',
+   description: '来日放歌须纵酒, 青春做伴好还乡',
 }
 
 // 所有配置项，详见文档: https://theme.sugarat.top/
@@ -49,7 +50,8 @@ const blogTheme = getThemeConfig({
     footer: {
         // message 字段支持配置为HTML内容，配置多条可以配置为数组
         // message: '下面 的内容和图标都是可以修改的噢（当然本条内容也是可以隐藏的）',
-        copyright: 'MIT License | Hayzone',
+        // copyright: 'MIT License | Hayzone',
+        copyright: 'MIT License | Hayzone - 2026',
         // icpRecord: {
         //   name: '蜀ICP备19011724号',
         //   link: 'https://beian.miit.gov.cn/'
