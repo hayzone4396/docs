@@ -70,12 +70,12 @@ const blogTheme = getThemeConfig({
 
   // 友链
   friend: [
-    {
-      nickname: '书灏',
-      des: '最爱湖东行不足，绿杨阴里白沙提',
-      avatar: 'https://zhaowuya.s3.bitiful.net/avatar.png',
-      url: 'https://zhaowuya.top/',
-    },
+    // {
+    //   nickname: '书灏',
+    //   des: '最爱湖东行不足，绿杨阴里白沙提',
+    //   avatar: 'https://zhaowuya.s3.bitiful.net/avatar.png',
+    //   url: 'https://zhaowuya.top/',
+    // },
     {
       nickname: '粥里有勺糖',
       des: '你的指尖用于改变世界的力量',
@@ -83,12 +83,12 @@ const blogTheme = getThemeConfig({
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
       url: 'https://sugarat.top',
     },
-    {
-      nickname: 'Vitepress',
-      des: 'Vite & Vue Powered Static Site Generator',
-      avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
-      url: 'https://vitepress.dev/',
-    },
+    // {
+    //   nickname: 'Vitepress',
+    //   des: 'Vite & Vue Powered Static Site Generator',
+    //   avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
+    //   url: 'https://vitepress.dev/',
+    // },
   ],
 
   // 公告
