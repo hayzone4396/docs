@@ -49,7 +49,7 @@ export default defineConfig({
     logo: '/img/favicon.png',
     // 导航栏
     nav: [
-      { text: '力扣每日一题', link: '/LeetCode/' },
+      { text: '追求更好', link: '/better/' },
       { text: 'Java', link: '/Java/' },
       { text: 'Css', link: '/Css/' },
       { text: 'SSM', link: '/SSM/' },
@@ -74,49 +74,21 @@ export default defineConfig({
         { text: '我打江南走过', link: '/Life/我打江南走过' },
         { text: '山的那边', link: '/Life/山的那边' },
       ],
-      '/LeetCode/': [
+      '/better/': [
         {
-          text: '数组',
-          collapsed: false, // 默认展开，true 为折叠
-          items: [{ text: '704.二分查找', link: '/LeetCode/704.二分查找' }],
-        },
-        {
-          text: '链表',
-          collapsed: false,
+          text: 'HTTP',
+          collapsed: true, // 默认展开，true 为折叠
           items: [
-            { text: '203.移除链表元素', link: '/LeetCode/203.移除链表元素' },
+            { text: 'HTTP 缓存完全指南', link: '/better/HTTP 缓存完全指南' },
+            { text: 'HTTP2 完全指南', link: '/better/HTTP2 完全指南' },
+            { text: 'HTTP 缓存与 HTTP2 核心要点', link: '/better/HTTP 缓存与 HTTP2 核心要点' },
           ],
         },
         {
-          text: '哈希表',
+          text: 'React',
           collapsed: false,
           items: [
-            {
-              text: '242.有效的字母异位词',
-              link: '/LeetCode/242.有效的字母异位词',
-            },
-          ],
-        },
-        {
-          text: '字符串',
-          collapsed: false,
-          items: [{ text: '344.反转字符串', link: '/LeetCode/344.反转字符串' }],
-        },
-        {
-          text: '栈与队列',
-          collapsed: false,
-          items: [
-            { text: '232.用栈实现队列', link: '/LeetCode/232.用栈实现队列' },
-          ],
-        },
-        {
-          text: '二叉树',
-          collapsed: false,
-          items: [
-            {
-              text: '144.二叉树的前序遍历',
-              link: '/LeetCode/144.二叉树的前序遍历',
-            },
+            { text: '203.移除链表元素', link: '/better/203.移除链表元素' },
           ],
         },
       ],
