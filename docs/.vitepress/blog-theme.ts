@@ -123,13 +123,13 @@ const blogTheme = getThemeConfig({
   recommend: false,
 
   // 评论插件
-  comment: {
-    repo: 'Hayzone/sloving.github.io',
-    repoId: 'MDEwOlJlcG9zaXRvcnkyNDY1MTEyOTQ=',
-    category: 'Announcements',
-    categoryId: 'DIC_kwDODrF2vs4CgAF8',
-    inputPosition: 'top',
-  },
+  // comment: {
+    // repo: 'Hayzone/sloving.github.io',
+    // repoId: 'MDEwOlJlcG9zaXRvcnkyNDY1MTEyOTQ=',
+    // category: 'Announcements',
+    // categoryId: 'DIC_kwDODrF2vs4CgAF8',
+    // inputPosition: 'top',
+  // },
 });
 
 export { blogTheme };
