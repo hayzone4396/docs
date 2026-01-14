@@ -9,8 +9,53 @@
 
 /* 自定义首页背景图 */
 .VPHome::before {
+  background-image: url(./assets/desk07.jpeg);
+  background-size: cover;
+}
+
+/* 自定义详情页背景图 - 统一背景 */
+.VPDoc::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url(./assets/desk05.jpeg);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(8px);
+}
+
+/* 确保内容在背景之上 */
+.VPDoc .container,
+.VPSidebar {
+  position: relative;
+  z-index: 1;
+}
+
+/* 给侧边栏添加半透明背景 */
+.VPSidebar {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 深色模式下的侧边栏背景 */
+html.dark .VPSidebar {
+  background-color: rgba(24, 24, 27, 0.6) !important;
+}
+
+/* 给导航栏添加半透明背景，显示背景图片的同时保持内容清晰 */
+.VPNav {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 深色模式下的导航栏背景 */
+html.dark .VPNav {
+  background-color: rgba(24, 24, 27, 0.7) !important;
 }
 
 body {
