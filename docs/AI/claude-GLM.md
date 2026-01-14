@@ -1,6 +1,6 @@
 ---
 title: Claude 集成 GLM-4.7
-date: 2026-01-14
+date: 2026-01-14 17:00:00
 tags:
   - Claude
   - GLM
