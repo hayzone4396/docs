@@ -22,3 +22,11 @@ body {
 strong {
   text-shadow: 0.8px 0;
 }
+
+/* 时钟容器样式 */
+.pendulum-clock-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px;
+  vertical-align: middle;
+}
