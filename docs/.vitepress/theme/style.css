@@ -75,3 +75,14 @@ strong {
   margin-right: 12px;
   vertical-align: middle;
 }
+
+/* 覆盖公告关闭按钮的背景色 */
+.theme-blog-popover-close {
+  background-color: #ff3939 !important;
+}
+
+/* 文章段落首行缩进 */
+.VPDoc .content p {
+  text-indent: 2em;
+  line-height: 1.8;
+}

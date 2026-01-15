@@ -1,17 +1,13 @@
 ---
-hidden: true
-readingTime: false
-date: false
-author: false
-recommend: false
-icon: './assets/rose.png'
-title: 生活随笔
+date: 2026-01-15 11:10:00
 ---
 
 # 生活随笔
 
 ## 2026
 
+- [01-15 让高飞的心永不沉沦](./让高飞的心永不沉沦.md)
+- [01-15 归去来兮辞](./归去来兮辞.md)
 - [01-14 山的那边](./山的那边.md)
 - [01-14 滴露的康乃馨](./滴露的康乃馨.md.md)
 - [01-13 破阵子](./破阵子.md)

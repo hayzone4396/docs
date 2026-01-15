@@ -68,6 +68,8 @@ export default defineConfig({
     // 侧边栏
     sidebar: {
       '/Life/': [
+        { text: '让高飞的心永不沉沦', link: '/Life/让高飞的心永不沉沦' },
+        { text: '归去来兮辞', link: '/Life/归去来兮辞' },
         { text: '山的那边', link: '/Life/山的那边' },
         { text: '滴露的康乃馨', link: '/Life/滴露的康乃馨' },
         { text: '破阵子', link: '/Life/破阵子' },
