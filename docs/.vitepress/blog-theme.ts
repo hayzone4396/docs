@@ -10,7 +10,7 @@ const baseUrl = '';
 const RSS: Theme.RSSOptions = {
   title: "Hayzone's Blog",
   baseUrl,
-  copyright: 'Copyright (c) 2019-present, Hayzone',
+  copyright: 'Copyright (c) 2026-present, Hayzone',
   description: '来日放歌须纵酒, 青春做伴好还乡',
 };
 
@@ -106,7 +106,7 @@ const blogTheme = getThemeConfig({
       //   },
       { type: 'text', content: '螃蟹还在剥着我的壳' },
       { type: 'text', content: '日记本还在写我' },
-      { type: 'text', content: '满天的我落到了叶子身上' },
+      { type: 'text', content: '漫天的我落到了叶子身上' },
       { type: 'text', content: '而你在想我' },
     ],
   },
