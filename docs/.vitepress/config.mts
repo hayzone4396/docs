@@ -85,6 +85,8 @@ export default defineConfig({
             { text: '基础', link: '/JavaScript/basic' },
             { text: 'ES6+ 新特性', link: '/JavaScript/es6-new-features' },
             { text: '异步编程', link: '/JavaScript/async-programming' },
+            { text: '移动端点击事件 300ms 延迟', link: '/JavaScript/mobile-click-delay' },
+            { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
           ],
         },
         {
@@ -94,8 +96,48 @@ export default defineConfig({
             { text: '概述', link: '/JavaScript/React/overview' },
             { text: 'Hooks', link: '/JavaScript/React/Hooks' },
             {
+              text: 'useState 完全指南',
+              link: '/JavaScript/React/useState',
+            },
+            {
+              text: 'useRef 完全指南',
+              link: '/JavaScript/React/useRef',
+            },
+            {
+              text: 'useEffect 与 useLayoutEffect',
+              link: '/JavaScript/React/useEffect-useLayoutEffect',
+            },
+            {
+              text: 'flushSync 同步更新',
+              link: '/JavaScript/React/flushSync',
+            },
+            {
+              text: 'PureComponent 性能优化',
+              link: '/JavaScript/React/PureComponent',
+            },
+            {
               text: '性能优化',
               link: '/JavaScript/React/performance-optimization',
+            },
+            {
+              text: 'useTransition 与 useDeferredValue',
+              link: '/JavaScript/React/useTransition-useDeferredValue',
+            },
+            {
+              text: 'useReducer 复杂状态管理',
+              link: '/JavaScript/React/useReducer',
+            },
+            {
+              text: '高阶组件（HOC）详解',
+              link: '/JavaScript/React/higher-order-component',
+            },
+            {
+              text: '自定义 Hooks 详解',
+              link: '/JavaScript/React/custom-hooks',
+            },
+            {
+              text: 'useCallback 与 useMemo 性能优化',
+              link: '/JavaScript/React/useCallback-useMemo',
             },
           ],
         },
@@ -236,7 +278,9 @@ export default defineConfig({
           ],
         },
       ],
-      '/CornerStore/': [],
+      '/CornerStore/': [
+        // { text: '超级 Agent', link: '/CornerStore/AI/super-app' },
+      ],
     },
   },
   vite: {

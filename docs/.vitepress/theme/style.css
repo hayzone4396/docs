@@ -86,3 +86,23 @@ strong {
   text-indent: 2em;
   line-height: 1.8;
 }
+
+/* 扩展文档内容区域宽度 */
+.VPDoc .container,
+.VPDoc .content-container {
+  max-width: 1600px !important;
+}
+
+/* 扩展文档内容宽度 */
+.vp-doc {
+  max-width: 1600px !important;
+}
+
+/* 在更大的屏幕上进一步扩展 */
+@media (min-width: 1920px) {
+  .VPDoc .container,
+  .VPDoc .content-container,
+  .vp-doc {
+    max-width: 1800px !important;
+  }
+}
