@@ -10,7 +10,7 @@ updateAt: 2026-01-16 15:35:50
 
 ## @1 月 16 日
 
-### [1. 阿里升级千问：超级 Agent，开始接管超级 App](https://www.53ai.com/news/LargeLanguageModel/2026011689736.html)
+### [1. 阿里升级千问：超级 Agent，开始接管超级 App](https://baijiahao.baidu.com/s?id=1854456940032366208&wfr=spider&for=pc)
   ::: info
   1 月 15 日，阿里旗下的千问在杭州召开了产品发布会，核心就是两个事：
     - 千问 App 全面接入淘宝、支付宝、淘宝闪购、飞猪、高德等阿里生态业务。相当于把整个阿里都装进了千问 App；
