@@ -17,6 +17,11 @@ recommend: false
 # React
 
 - [React 概述](./React/overview.md)
+- [React 合成事件原理](./React/synthetic-events.md)
+- [React Router 完全指南](./React/react-router.md)
+- [Redux 状态管理完全指南](./React/redux-guide.md)
+- [Context API 完全指南](./React/context-api.md)
+- [React 插槽模式完全指南](./React/slots-pattern.md)
 - [React Hooks](./React/Hooks.md)
 - [useState 完全指南](./React/useState.md)
 - [useRef 完全指南](./React/useRef.md)
@@ -39,6 +44,12 @@ recommend: false
 # Vue
 
 - [Vue 概述](./Vue/overview.md)
+- [Vue Teleport 传送门完全指南](./Vue/teleport.md)
+- [Vue 异步组件与 Suspense 完全指南](./Vue/async-component-suspense.md)
+- [Vue SFC 标签属性与底层原理深度解析](./Vue/sfc-attributes-principle.md)
+- [Vuex 与 Pinia 状态管理完全指南](./Vue/vuex-pinia-guide.md)
+- [Vue 插槽（Slots）完全指南](./Vue/slots.md)
+- [Vue 组件通信完全指南](./Vue/component-communication.md)
 - [Vue 状态管理](./Vue/state-management.md)
 - [Vue Composition API](./Vue/composition-api.md)
 

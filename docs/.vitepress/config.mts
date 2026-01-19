@@ -94,6 +94,26 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '概述', link: '/JavaScript/React/overview' },
+            {
+              text: '合成事件原理',
+              link: '/JavaScript/React/synthetic-events',
+            },
+            {
+              text: 'React Router 完全指南',
+              link: '/JavaScript/React/react-router',
+            },
+            {
+              text: 'Redux 状态管理完全指南',
+              link: '/JavaScript/React/redux-guide',
+            },
+            {
+              text: 'Context API 完全指南',
+              link: '/JavaScript/React/context-api',
+            },
+            {
+              text: 'React 插槽模式完全指南',
+              link: '/JavaScript/React/slots-pattern',
+            },
             { text: 'Hooks', link: '/JavaScript/React/Hooks' },
             {
               text: 'useState 完全指南',
@@ -146,6 +166,30 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '概述', link: '/JavaScript/Vue/overview' },
+            {
+              text: 'Teleport 传送门完全指南',
+              link: '/JavaScript/Vue/teleport',
+            },
+            {
+              text: '异步组件与 Suspense 完全指南',
+              link: '/JavaScript/Vue/async-component-suspense',
+            },
+            {
+              text: 'SFC 标签属性与底层原理',
+              link: '/JavaScript/Vue/sfc-attributes-principle',
+            },
+            {
+              text: 'Vuex 与 Pinia 状态管理',
+              link: '/JavaScript/Vue/vuex-pinia-guide',
+            },
+            {
+              text: '插槽（Slots）完全指南',
+              link: '/JavaScript/Vue/slots',
+            },
+            {
+              text: '组件通信完全指南',
+              link: '/JavaScript/Vue/component-communication',
+            },
             { text: '状态管理', link: '/JavaScript/Vue/state-management' },
             {
               text: 'Composition API',
@@ -179,6 +223,10 @@ export default defineConfig({
         },
       ],
       '/Css/': [
+        {
+          text: 'CSS 预处理器完全指南',
+          link: '/Css/css-preprocessors',
+        },
         { text: '元素快速居中', link: '/Css/element-center' },
         {
           text: 'padding与margin的区别',
