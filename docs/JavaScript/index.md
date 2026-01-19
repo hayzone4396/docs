@@ -50,6 +50,11 @@ recommend: false
 - [Vuex 与 Pinia 状态管理完全指南](./Vue/vuex-pinia-guide.md)
 - [Vue 插槽（Slots）完全指南](./Vue/slots.md)
 - [Vue 组件通信完全指南](./Vue/component-communication.md)
+- [Vue 响应式 API 完全指南：ref、reactive、toRef & toRefs](./Vue/reactive-api.md)
+- [Vue computed 与 watch 完全指南](./Vue/computed-watch.md)
+- [Vue Composables（组合式函数）完全指南](./Vue/composables.md)
+- [Vue 生命周期钩子完全指南](./Vue/lifecycle.md)
+- [Vue Router 完全指南](./Vue/vue-router.md)
 - [Vue 状态管理](./Vue/state-management.md)
 - [Vue Composition API](./Vue/composition-api.md)
 

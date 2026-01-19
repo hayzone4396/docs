@@ -190,6 +190,26 @@ export default defineConfig({
               text: '组件通信完全指南',
               link: '/JavaScript/Vue/component-communication',
             },
+            {
+              text: '响应式 API（ref、reactive、toRef & toRefs）',
+              link: '/JavaScript/Vue/reactive-api',
+            },
+            {
+              text: 'computed 与 watch',
+              link: '/JavaScript/Vue/computed-watch',
+            },
+            {
+              text: 'Composables（组合式函数）',
+              link: '/JavaScript/Vue/composables',
+            },
+            {
+              text: '生命周期钩子',
+              link: '/JavaScript/Vue/lifecycle',
+            },
+            {
+              text: 'Vue Router',
+              link: '/JavaScript/Vue/vue-router',
+            },
             { text: '状态管理', link: '/JavaScript/Vue/state-management' },
             {
               text: 'Composition API',
