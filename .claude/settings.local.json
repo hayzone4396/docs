@@ -6,7 +6,8 @@
       "Bash(done)",
       "Bash(awk:*)",
       "Bash(grep:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)"
     ]
   }
 }
