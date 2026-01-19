@@ -152,24 +152,38 @@ const map = reactive(new Map([['count', ref(0)]]));
 console.log(map.get('count').value); // ⚠️ 需要 .value
 ```
 
-### 1.4 ref 的基本特性
+### 1.4 ref 的类型定义（TypeScript）
 
 ```javascript
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 
-// 创建不同类型的 ref
-const count = ref(0);
-const name = ref('张三');
-const isActive = ref(true);
+// 自动推导类型
+const count = ref(0); // Ref<number>
+const name = ref('张三'); // Ref<string>
 
-// ref 包装对象
-const user = ref({
+// 显式指定类型
+const count2 = ref<number>(0);
+const user = ref<{ name: string; age: number }>({
   name: '张三',
   age: 25
 });
 
-// 可选值（可以为 null）
-const currentUser = ref(null);
+// 泛型类型
+interface User {
+  name: string;
+  age: number;
+}
+
+const user2 = ref<User>({
+  name: '张三',
+  age: 25
+});
+
+// 可选类型
+const user3 = ref<User | null>(null);
+
+// 使用 Ref 类型注解
+const count3: Ref<number> = ref(0);
 ```
 
 ## 二、reactive
@@ -315,23 +329,34 @@ state.list[0].name = '项目2'; // ✅ 响应式
 state.list.push({ id: 2, name: '项目3' }); // ✅ 响应式
 ```
 
-### 2.4 reactive 对象示例
+### 2.4 TypeScript 类型定义
 
 ```javascript
 import { reactive } from 'vue';
 
-// 创建用户对象
-const user = reactive({
+// 接口定义
+interface User {
+  name: string;
+  age: number;
+  hobbies?: string[];
+}
+
+// 自动推导
+const user1 = reactive({
   name: '张三',
-  age: 25,
-  hobbies: ['篮球', '游泳']
+  age: 25
 });
 
-// 创建表单对象
-const form = reactive({
-  username: '',
-  password: '',
-  email: ''
+// 显式类型注解
+const user2: User = reactive({
+  name: '张三',
+  age: 25
+});
+
+// 使用泛型（不推荐，直接注解更好）
+const user3 = reactive({
+  name: '张三',
+  age: 25
 });
 ```
 
@@ -346,7 +371,7 @@ const form = reactive({
 | **重新赋值** | ✅ 可以整个替换 | ❌ 不能替换，会丢失响应式 |
 | **解构** | 可以（仍是 ref） | ❌ 会丢失响应式 |
 | **模板使用** | 自动解包 | 直接使用 |
-| **类型推导** | 更明确 | 普通对象 |
+| **类型推导** | 更明确（Ref<T>） | 普通对象 |
 
 ### 3.2 使用场景对比
 
@@ -364,8 +389,8 @@ const isActive = ref(true);
 const user = ref({ name: '张三', age: 25 });
 user.value = { name: '李四', age: 30 }; // ✅ 可以
 
-// ✅ 单一值（可以为 null）
-const selected = ref(null);
+// ✅ 单一值
+const selected = ref<User | null>(null);
 ```
 
 **使用 reactive：**
@@ -402,10 +427,10 @@ const loading = ref(false);
 const message = ref('');
 
 // 2. 需要频繁整体替换的数据
-const currentUser = ref(null);
+const currentUser = ref<User | null>(null);
 
-// 3. 复杂对象数据
-const data = ref({});
+// 3. 需要明确的类型标注
+const data = ref<ApiResponse>({});
 
 // 4. 组合式函数的返回值
 function useCounter() {
@@ -1137,7 +1162,7 @@ const user = reactive({ name: '张三' });
 user = null; // 错误
 
 // ✅ 好
-const user = ref({ name: '张三' });
+const user = ref<User | null>({ name: '张三' });
 user.value = null; // 正确
 ```
 

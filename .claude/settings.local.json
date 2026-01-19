@@ -5,7 +5,8 @@
       "WebFetch(domain:wenku.baidu.com)",
       "Bash(done)",
       "Bash(awk:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git push:*)"
     ]
   }
 }
