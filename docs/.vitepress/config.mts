@@ -70,6 +70,7 @@ export default defineConfig({
     // 侧边栏
     sidebar: {
       '/Life/': [
+        { text: '二十年前的今天，像极了此时此刻', link: '/Life/millennium-memories' },
         { text: '珍惜时光，记忆童年', link: '/Life/childhood-memories' },
         { text: '让高飞的心永不沉沦', link: '/Life/soaring-heart' },
         { text: '归去来兮辞', link: '/Life/returning-home' },
