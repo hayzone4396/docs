@@ -103,8 +103,7 @@ const fullName = computed({
 
 计算属性会缓存结果，只有依赖变化时才重新计算。
 
-```vue
-<script setup>
+```javascript
 import { ref, computed } from 'vue';
 
 const count = ref(0);
@@ -135,7 +134,6 @@ console.log(getDoubleCount()); // '方法执行' 0
 // 修改依赖后，计算属性会重新计算
 count.value = 10;
 console.log(doubleCount.value); // 'computed 执行' 20
-</script>
 ```
 
 ### 1.4 TypeScript 类型推导
@@ -180,8 +178,7 @@ const fullName = computed<string>({
 
 **✅ 应该做的：**
 
-```vue
-<script setup>
+```javascript
 import { ref, computed } from 'vue';
 
 const todos = ref([
@@ -206,13 +203,11 @@ const formattedTodos = computed(() => {
 const firstName = ref('三');
 const lastName = ref('张');
 const fullName = computed(() => lastName.value + firstName.value);
-</script>
 ```
 
 **❌ 不应该做的：**
 
-```vue
-<script setup>
+```javascript
 import { ref, computed } from 'vue';
 
 const count = ref(0);
@@ -235,15 +230,13 @@ const badList = computed(() => {
   list.value.push(4); // ❌ 修改了原数组
   return list.value;
 });
-</script>
 ```
 
 ## 二、watch（侦听器）
 
 ### 2.1 侦听 ref
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const count = ref(0);
@@ -255,13 +248,11 @@ watch(count, (newValue, oldValue) => {
 
 // 修改值，触发侦听器
 count.value++; // 输出：count 从 0 变为 1
-</script>
 ```
 
 ### 2.2 侦听 reactive 对象
 
-```vue
-<script setup>
+```javascript
 import { reactive, watch } from 'vue';
 
 const user = reactive({
@@ -279,13 +270,11 @@ watch(user, (newValue, oldValue) => {
 // 修改属性会触发侦听
 user.name = '李四'; // 触发
 user.age = 30; // 触发
-</script>
 ```
 
 ### 2.3 侦听对象的特定属性
 
-```vue
-<script setup>
+```javascript
 import { reactive, watch } from 'vue';
 
 const user = reactive({
@@ -314,13 +303,11 @@ watch(
 
 user.name = '李四'; // 触发第一个侦听器
 user.address.city = '上海'; // 触发第二个侦听器
-</script>
 ```
 
 ### 2.4 侦听多个数据源
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const firstName = ref('三');
@@ -336,13 +323,11 @@ watch(
 
 firstName.value = '四'; // 触发
 lastName.value = '李'; // 触发
-</script>
 ```
 
 ### 2.5 deep（深度侦听）
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const user = ref({
@@ -383,13 +368,11 @@ watch(state, () => {
 }); // 自动深度侦听
 
 state.nested.count++; // 触发
-</script>
 ```
 
 ### 2.6 immediate（立即执行）
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const count = ref(0);
@@ -406,15 +389,13 @@ watch(
 
 count.value = 10;
 // 输出：count: 10
-</script>
 ```
 
 ### 2.7 flush 时机
 
 控制侦听器回调的执行时机。
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const count = ref(0);
@@ -449,13 +430,11 @@ watch(
 
 count.value = 10;
 // 输出顺序：sync -> pre -> post
-</script>
 ```
 
 ### 2.8 停止侦听器
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const count = ref(0);
@@ -474,13 +453,11 @@ const stop = watch(count, (newValue) => {
 count.value = 5; // 触发
 count.value = 10; // 触发，然后停止
 count.value = 15; // 不触发（已停止）
-</script>
 ```
 
 ### 2.9 onCleanup（清理副作用）
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const searchQuery = ref('');
@@ -507,7 +484,6 @@ watch(searchQuery, async (newQuery, oldQuery, onCleanup) => {
 // 快速输入时，会取消之前未完成的请求
 searchQuery.value = 'vue'; // 发起请求1
 searchQuery.value = 'react'; // 取消请求1，发起请求2
-</script>
 ```
 
 ## 三、watchEffect
@@ -516,8 +492,7 @@ searchQuery.value = 'react'; // 取消请求1，发起请求2
 
 自动追踪依赖，无需手动指定侦听的数据源。
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect } from 'vue';
 
 const count = ref(0);
@@ -534,13 +509,11 @@ count.value = 10;
 
 message.value = 'World';
 // 输出：count: 10, message: World
-</script>
 ```
 
 ### 3.2 停止侦听
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect } from 'vue';
 
 const count = ref(0);
@@ -556,13 +529,11 @@ const stop = watchEffect(() => {
 count.value = 5; // 触发
 count.value = 10; // 触发，然后停止
 count.value = 15; // 不触发
-</script>
 ```
 
 ### 3.3 清理副作用
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect } from 'vue';
 
 const id = ref(1);
@@ -582,13 +553,11 @@ watchEffect((onCleanup) => {
 // 快速切换 id，会清理之前的定时器
 id.value = 2;
 id.value = 3;
-</script>
 ```
 
 ### 3.4 执行时机
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect, watchPostEffect, watchSyncEffect } from 'vue';
 
 const count = ref(0);
@@ -611,7 +580,6 @@ watchSyncEffect(() => {
 
 count.value = 10;
 // 输出顺序：watchSyncEffect -> watchEffect -> watchPostEffect
-</script>
 ```
 
 ## 四、watch vs watchEffect
@@ -630,8 +598,7 @@ count.value = 10;
 
 **使用 watch：**
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const question = ref('');
@@ -656,13 +623,11 @@ watch(searchQuery, async (query) => {
   // 只在 searchQuery 变化时查询
   results.value = await search(query);
 });
-</script>
 ```
 
 **使用 watchEffect：**
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect } from 'vue';
 
 const count = ref(0);
@@ -686,7 +651,6 @@ watchEffect(() => {
 watchEffect(() => {
   document.title = `计数：${count.value}`;
 });
-</script>
 ```
 
 ## 五、底层原理
@@ -956,8 +920,7 @@ const handleSubmit = () => {
 
 ### 示例 3：数据同步
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const localData = ref(null);
@@ -984,13 +947,11 @@ watch(
 
 // 初始化加载
 loadData();
-</script>
 ```
 
 ### 示例 4：响应式文档标题
 
-```vue
-<script setup>
+```javascript
 import { ref, watchEffect } from 'vue';
 
 const count = ref(0);
@@ -1004,15 +965,13 @@ watchEffect(() => {
 const increment = () => {
   count.value++;
 };
-</script>
 ```
 
 ## 七、性能优化
 
 ### 7.1 避免不必要的深度侦听
 
-```vue
-<script setup>
+```javascript
 import { ref, watch } from 'vue';
 
 const largeObject = ref({
@@ -1032,13 +991,11 @@ watch(
     console.log('数组长度变化:', newLength);
   }
 );
-</script>
 ```
 
 ### 7.2 使用计算属性缓存
 
-```vue
-<script setup>
+```javascript
 import { ref, computed } from 'vue';
 
 const list = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -1054,13 +1011,11 @@ const filteredList = computed(() => {
   console.log('计算 filtered list');
   return list.value.filter(item => item > 5);
 });
-</script>
 ```
 
 ### 7.3 及时停止不需要的侦听器
 
-```vue
-<script setup>
+```javascript
 import { ref, watch, onUnmounted } from 'vue';
 
 const data = ref(null);
@@ -1078,7 +1033,6 @@ onUnmounted(() => {
 const handleComplete = () => {
   stop();
 };
-</script>
 ```
 
 ## 八、常见问题

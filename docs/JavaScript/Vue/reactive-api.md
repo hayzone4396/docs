@@ -68,8 +68,7 @@ console.log(name.value);  // '张三'
 
 ref 也可以包装对象类型，内部会自动调用 `reactive`。
 
-```vue
-<script setup>
+```javascript
 import { ref } from 'vue';
 
 // ref 包装对象
@@ -101,7 +100,6 @@ const addItem = () => {
 const replaceList = () => {
   list.value = [5, 6, 7];
 };
-</script>
 ```
 
 ### 1.3 自动解包（unwrap）
@@ -115,8 +113,8 @@ const replaceList = () => {
     <p>{{ count }}</p>
     <p>{{ user.name }}</p>
 
-    <!-- ❌ 不需要写 .value -->
-    <p>{{ count.value }}</p> <!-- 错误 -->
+    <!-- ❌ 不需要写 .value，这是错误的 -->
+    <p>{{ count.value }}</p>
   </div>
 </template>
 
@@ -134,8 +132,7 @@ console.log(user.value.name);
 
 **⚠️ 注意：在 reactive 对象中的 ref 也会自动解包**
 
-```vue
-<script setup>
+```javascript
 import { ref, reactive } from 'vue';
 
 const count = ref(0);
@@ -153,7 +150,6 @@ console.log(list[0].value); // ⚠️ 需要 .value
 
 const map = reactive(new Map([['count', ref(0)]]));
 console.log(map.get('count').value); // ⚠️ 需要 .value
-</script>
 ```
 
 ### 1.4 ref 的类型定义（TypeScript）
@@ -248,8 +244,7 @@ const name = reactive('张三'); // ❌ 警告
 
 **⚠️ 不能替换整个对象**
 
-```vue
-<script setup>
+```javascript
 import { reactive } from 'vue';
 
 let user = reactive({
@@ -278,13 +273,11 @@ Object.assign(user, {
 // ✅ 正确：修改单个属性
 user.name = '李四';
 user.age = 30;
-</script>
 ```
 
 **⚠️ 解构会丢失响应式**
 
-```vue
-<script setup>
+```javascript
 import { reactive, toRefs } from 'vue';
 
 const user = reactive({
@@ -305,15 +298,13 @@ const { name: refName, age: refAge } = toRefs(user);
 // 修改会触发更新
 refName.value = '李四'; // ✅ 有效
 refAge.value = 30; // ✅ 有效
-</script>
 ```
 
 ### 2.3 深层响应式
 
 reactive 默认是深层响应式的，会递归地将所有嵌套对象转换为响应式。
 
-```vue
-<script setup>
+```javascript
 import { reactive } from 'vue';
 
 const state = reactive({
@@ -336,7 +327,6 @@ state.user.profile.name = '李四'; // ✅ 响应式
 state.user.profile.address.city = '上海'; // ✅ 响应式
 state.list[0].name = '项目2'; // ✅ 响应式
 state.list.push({ id: 2, name: '项目3' }); // ✅ 响应式
-</script>
 ```
 
 ### 2.4 TypeScript 类型定义
@@ -387,8 +377,7 @@ const user3 = reactive<User>({
 
 **使用 ref：**
 
-```vue
-<script setup>
+```javascript
 import { ref } from 'vue';
 
 // ✅ 基本类型
@@ -402,13 +391,11 @@ user.value = { name: '李四', age: 30 }; // ✅ 可以
 
 // ✅ 单一值
 const selected = ref<User | null>(null);
-</script>
 ```
 
 **使用 reactive：**
 
-```vue
-<script setup>
+```javascript
 import { reactive } from 'vue';
 
 // ✅ 复杂对象，多个相关属性
@@ -425,15 +412,13 @@ const list = reactive([1, 2, 3]);
 // ✅ 集合类型
 const userMap = reactive(new Map());
 const tagSet = reactive(new Set());
-</script>
 ```
 
 ### 3.3 实际开发建议
 
 **推荐使用 ref 的场景：**
 
-```vue
-<script setup>
+```javascript
 import { ref } from 'vue';
 
 // 1. 基本类型
@@ -452,13 +437,11 @@ function useCounter() {
   const count = ref(0);
   return { count }; // 解构后仍保持响应式
 }
-</script>
 ```
 
 **推荐使用 reactive 的场景：**
 
-```vue
-<script setup>
+```javascript
 import { reactive } from 'vue';
 
 // 1. 表单数据
@@ -481,7 +464,6 @@ const config = reactive({
   language: 'zh-CN',
   pageSize: 10
 });
-</script>
 ```
 
 ## 四、toRef
@@ -530,9 +512,8 @@ const updateAge = () => {
 
 **场景 1：从 props 中提取属性**
 
-```vue
+```javascript
 <!-- 子组件 -->
-<script setup>
 import { toRef } from 'vue';
 
 const props = defineProps({
@@ -549,7 +530,6 @@ const userRef = toRef(props, 'user');
 watch(userRef, (newUser) => {
   console.log('用户更新：', newUser);
 });
-</script>
 ```
 
 **场景 2：从 reactive 对象中提取单个值传递给子组件**
@@ -574,8 +554,7 @@ const countRef = toRef(state, 'count');
 
 ### 4.3 toRef vs 普通 ref
 
-```vue
-<script setup>
+```javascript
 import { reactive, toRef, ref } from 'vue';
 
 const user = reactive({
@@ -592,13 +571,11 @@ console.log(user.name); // '李四' ✅ 原对象也更新
 const nameByRef = ref(user.name);
 nameByRef.value = '王五';
 console.log(user.name); // '李四' ⚠️ 原对象不变
-</script>
 ```
 
 ### 4.4 toRef 处理不存在的属性
 
-```vue
-<script setup>
+```javascript
 import { reactive, toRef } from 'vue';
 
 const user = reactive({
@@ -613,7 +590,6 @@ console.log(ageRef.value); // undefined
 // 设置值后，会添加到原对象
 ageRef.value = 25;
 console.log(user.age); // 25
-</script>
 ```
 
 ## 五、toRefs
@@ -663,8 +639,7 @@ const updateUser = () => {
 
 **场景 1：组合式函数返回值**
 
-```vue
-<script setup>
+```javascript
 import { reactive, toRefs } from 'vue';
 
 // 组合式函数
@@ -693,7 +668,6 @@ const { name, age, loading, updateUser } = useUser();
 console.log(name.value); // '张三'
 updateUser('李四');
 console.log(name.value); // '李四'
-</script>
 ```
 
 **场景 2：从 reactive 对象中批量提取属性**
@@ -723,9 +697,8 @@ const { username, password, email } = toRefs(form);
 
 **场景 3：Props 解构**
 
-```vue
+```javascript
 <!-- 子组件 -->
-<script setup>
 import { toRefs } from 'vue';
 
 const props = defineProps({
@@ -741,13 +714,11 @@ const { name, age, city } = toRefs(props);
 watch(name, (newName) => {
   console.log('姓名变化：', newName);
 });
-</script>
 ```
 
 ### 5.3 toRefs 结合扩展运算符
 
-```vue
-<script setup>
+```javascript
 import { reactive, toRefs, ref } from 'vue';
 
 const state = reactive({
@@ -767,7 +738,6 @@ const data = {
 console.log(data.count.value); // 0
 console.log(data.name.value); // '张三'
 console.log(data.message.value); // 'Hello'
-</script>
 ```
 
 ## 六、其他响应式 API
@@ -778,8 +748,7 @@ console.log(data.message.value); // 'Hello'
 
 **shallowRef：**
 
-```vue
-<script setup>
+```javascript
 import { shallowRef } from 'vue';
 
 const state = shallowRef({
@@ -803,13 +772,11 @@ state.value.nested.value = 20; // 不会触发更新
 import { triggerRef } from 'vue';
 state.value.count = 10;
 triggerRef(state); // 手动触发
-</script>
 ```
 
 **shallowReactive：**
 
-```vue
-<script setup>
+```javascript
 import { shallowReactive } from 'vue';
 
 const state = shallowReactive({
@@ -825,7 +792,6 @@ state.count = 10; // 触发更新
 // ❌ 嵌套对象不是响应式的
 state.nested.value = 20; // 不会触发更新
 state.nested = { value: 30 }; // ✅ 替换对象会触发更新
-</script>
 ```
 
 **使用场景：**
@@ -836,8 +802,7 @@ state.nested = { value: 30 }; // ✅ 替换对象会触发更新
 
 创建只读的响应式代理，防止修改。
 
-```vue
-<script setup>
+```javascript
 import { reactive, readonly } from 'vue';
 
 const user = reactive({
@@ -857,13 +822,11 @@ user.name = '李四'; // 可以
 
 // readonly 的变化会跟随原对象
 console.log(readonlyUser.name); // '李四'
-</script>
 ```
 
 **应用场景：**
 
-```vue
-<script setup>
+```javascript
 import { reactive, readonly } from 'vue';
 
 // 组合式函数
@@ -891,13 +854,11 @@ state.count = 10; // 警告
 
 // ✅ 只能通过方法修改
 increment(); // 正确
-</script>
 ```
 
 ### 6.3 类型判断 API
 
-```vue
-<script setup>
+```javascript
 import {
   ref,
   reactive,
@@ -929,15 +890,13 @@ console.log(isReadonly(user)); // false
 console.log(isProxy(user)); // true
 console.log(isProxy(readonlyUser)); // true
 console.log(isProxy(count)); // false
-</script>
 ```
 
 ### 6.4 unref
 
 获取 ref 的值，如果不是 ref 则返回原值。
 
-```vue
-<script setup>
+```javascript
 import { ref, unref } from 'vue';
 
 const count = ref(10);
@@ -948,7 +907,6 @@ console.log(unref(num)); // 20（原值）
 
 // 等价于
 const val = isRef(count) ? count.value : count;
-</script>
 ```
 
 ## 七、实战示例
@@ -1135,8 +1093,7 @@ const isAdult = computed(() => age.value >= 18);
 
 ### 8.1 选择合适的响应式 API
 
-```vue
-<script setup>
+```javascript
 import { ref, shallowRef } from 'vue';
 
 // ❌ 不好：大型对象使用深层响应式
@@ -1154,13 +1111,11 @@ const largeData = shallowRef({
 largeData.value = {
   items: newItems
 };
-</script>
 ```
 
 ### 8.2 避免不必要的响应式
 
-```vue
-<script setup>
+```javascript
 import { ref } from 'vue';
 
 // ❌ 不好：不需要响应式的常量
@@ -1174,7 +1129,6 @@ const CONFIG = {
   API_URL: 'https://api.example.com',
   TIMEOUT: 3000
 };
-</script>
 ```
 
 ## 九、常见问题

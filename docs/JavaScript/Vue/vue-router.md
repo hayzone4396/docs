@@ -146,8 +146,7 @@ src/
 
 通过点击导航，视觉效果上"消失"的路由组件，**默认是被卸载掉的**，需要的时候再去挂载。
 
-```vue
-<script setup>
+```javascript
 import { onMounted, onUnmounted } from 'vue';
 
 onMounted(() => {
@@ -157,7 +156,6 @@ onMounted(() => {
 onUnmounted(() => {
   console.log('组件卸载'); // 切换路由时会触发
 });
-</script>
 ```
 
 ## 二、路由模式
@@ -306,8 +304,7 @@ const goSteps = (n) => {
 
 在路由组件中，可以通过 `useRoute` 和 `useRouter` 访问路由信息和方法。
 
-```vue
-<script setup>
+```javascript
 import { useRoute, useRouter } from 'vue-router';
 
 // $route：当前路由信息
@@ -321,7 +318,6 @@ console.log(route.name);       // 'news'
 const router = useRouter();
 console.log(router.push);      // 导航方法
 console.log(router.replace);   // 导航方法
-</script>
 ```
 
 ## 四、命名路由
@@ -570,7 +566,7 @@ const routes = [
 - params 参数必须配合**命名路由**（name）使用
 - 不能使用 `path` + `params` 的组合
 
-```vue
+```javascript
 <!-- ❌ 错误：params 不能和 path 一起使用 -->
 <RouterLink
   :to="{
@@ -649,13 +645,11 @@ console.log(route.params);
 }
 ```
 
-```vue
+```javascript
 <!-- Detail.vue -->
-<script setup>
 defineProps(['a', 'b', 'c']);
 
 // 接收：a=1, b=2, c=3
-</script>
 ```
 
 #### 方式2：布尔值写法
@@ -753,8 +747,7 @@ defineProps(['id', 'title', 'page']);
 
 **编程式导航**：
 
-```vue
-<script setup>
+```javascript
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -764,7 +757,6 @@ router.push('/news');
 
 // replace：不可以后退
 router.replace('/news');
-</script>
 ```
 
 ## 九、重定向
@@ -864,8 +856,7 @@ const routes = [
 
 ### 10.4 组件内守卫
 
-```vue
-<script setup>
+```javascript
 import { onBeforeRouteEnter, onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
 
 // 进入路由前
@@ -886,7 +877,6 @@ onBeforeRouteLeave((to, from) => {
   const answer = window.confirm('确定要离开吗？数据未保存。');
   if (!answer) return false; // 取消导航
 });
-</script>
 ```
 
 ## 十一、路由元信息
@@ -907,15 +897,13 @@ const routes = [
 
 **使用**：
 
-```vue
-<script setup>
+```javascript
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 
 console.log(route.meta.requiresAuth);
 console.log(route.meta.title);
-</script>
 ```
 
 ## 十二、常见问题

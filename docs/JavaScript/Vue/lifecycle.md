@@ -41,8 +41,7 @@ categories:
 
 ### 1.2 Composition API 生命周期
 
-```vue
-<script setup>
+```javascript
 import {
   onBeforeMount,
   onMounted,
@@ -86,13 +85,11 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
   console.log('组件已卸载');
 });
-</script>
 ```
 
 ### 1.3 Options API 生命周期
 
-```vue
-<script>
+```javascript
 export default {
   beforeCreate() {
     console.log('beforeCreate');
@@ -140,7 +137,6 @@ export default {
     // 组件已卸载
   }
 };
-</script>
 ```
 
 ## 二、Vue 2 vs Vue 3 生命周期对比
@@ -204,8 +200,7 @@ onUnmounted(() => {
 - 接收 `props` 和 `context` 参数
 - 返回值暴露给模板
 
-```vue
-<script setup>
+```javascript
 import { ref } from 'vue';
 
 // ✅ 相当于 setup() 函数
@@ -213,7 +208,6 @@ const count = ref(0);
 
 console.log('setup 执行');
 // 此时组件实例还未创建
-</script>
 ```
 
 ### 3.2 beforeCreate / created
@@ -222,8 +216,7 @@ console.log('setup 执行');
 
 **created**：实例创建完成，数据观测、计算属性、方法、事件已配置
 
-```vue
-<script>
+```javascript
 export default {
   data() {
     return {
@@ -256,7 +249,6 @@ export default {
     }
   }
 };
-</script>
 ```
 
 **⚠️ Composition API 中不需要这两个钩子，直接在 setup 中编写代码**
@@ -347,8 +339,7 @@ onUpdated(() => {
 
 **⚠️ 常见陷阱：无限更新循环**
 
-```vue
-<script setup>
+```javascript
 import { ref, onUpdated } from 'vue';
 
 const count = ref(0);
@@ -364,7 +355,6 @@ import { watch } from 'vue';
 watch(count, (newValue) => {
   console.log('count 变化：', newValue);
 });
-</script>
 ```
 
 ### 3.5 beforeUnmount / unmounted
@@ -373,8 +363,7 @@ watch(count, (newValue) => {
 
 **unmounted**：组件卸载完成
 
-```vue
-<script setup>
+```javascript
 import { ref, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
 
 let timer = null;
@@ -414,7 +403,6 @@ onUnmounted(() => {
   console.log('unmounted');
   // 组件已完全卸载
 });
-</script>
 ```
 
 ## 四、特殊生命周期钩子
@@ -456,8 +444,7 @@ onDeactivated(() => {
 
 捕获来自后代组件的错误。
 
-```vue
-<script setup>
+```javascript
 import { onErrorCaptured } from 'vue';
 
 onErrorCaptured((err, instance, info) => {
@@ -468,15 +455,13 @@ onErrorCaptured((err, instance, info) => {
   // 返回 false 阻止错误继续传播
   return false;
 });
-</script>
 ```
 
 ### 4.3 onRenderTracked / onRenderTriggered（调试）
 
 **仅在开发模式下可用**，用于调试响应式依赖。
 
-```vue
-<script setup>
+```javascript
 import { ref, onRenderTracked, onRenderTriggered } from 'vue';
 
 const count = ref(0);
@@ -490,15 +475,13 @@ onRenderTriggered((event) => {
   console.log('重新渲染被触发：', event);
   // 显示是哪个属性的变化触发了重新渲染
 });
-</script>
 ```
 
 ### 4.4 onServerPrefetch（SSR）
 
 服务端渲染时调用。
 
-```vue
-<script setup>
+```javascript
 import { ref, onServerPrefetch } from 'vue';
 
 const data = ref(null);
@@ -507,7 +490,6 @@ onServerPrefetch(async () => {
   // 在服务端预取数据
   data.value = await fetchData();
 });
-</script>
 ```
 
 ## 五、父子组件生命周期执行顺序
@@ -575,9 +557,8 @@ onMounted(() => {
 
 ### 5.2 更新阶段
 
-```vue
+```javascript
 <!-- 父组件 -->
-<script setup>
 import { ref, onBeforeUpdate, onUpdated } from 'vue';
 
 const count = ref(0);
@@ -589,10 +570,8 @@ onBeforeUpdate(() => {
 onUpdated(() => {
   console.log('父 updated');
 });
-</script>
 
 <!-- 子组件 -->
-<script setup>
 import { onBeforeUpdate, onUpdated } from 'vue';
 
 onBeforeUpdate(() => {
@@ -602,7 +581,6 @@ onBeforeUpdate(() => {
 onUpdated(() => {
   console.log('子 updated');
 });
-</script>
 ```
 
 **父组件数据变化影响子组件时**：
@@ -731,8 +709,7 @@ onUnmounted(() => console.log('子 unmounted'));
 
 ### 6.1 数据获取
 
-```vue
-<script setup>
+```javascript
 import { ref, onMounted } from 'vue';
 
 const data = ref(null);
@@ -767,13 +744,11 @@ const fetchData = async () => {
 };
 
 fetchData(); // 立即执行
-</script>
 ```
 
 ### 6.2 事件监听清理
 
-```vue
-<script setup>
+```javascript
 import { onMounted, onBeforeUnmount } from 'vue';
 
 const handleResize = () => {
@@ -789,13 +764,11 @@ onBeforeUnmount(() => {
   // ✅ 移除监听（重要！）
   window.removeEventListener('resize', handleResize);
 });
-</script>
 ```
 
 ### 6.3 定时器清理
 
-```vue
-<script setup>
+```javascript
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const count = ref(0);
@@ -815,7 +788,6 @@ onBeforeUnmount(() => {
     timer = null;
   }
 });
-</script>
 ```
 
 ### 6.4 第三方库初始化
@@ -856,8 +828,7 @@ onBeforeUnmount(() => {
 
 ### 6.5 避免在 updated 中修改状态
 
-```vue
-<script setup>
+```javascript
 import { ref, onUpdated, watch } from 'vue';
 
 const count = ref(0);
@@ -878,7 +849,6 @@ onUpdated(() => {
     count.value++;
   }
 });
-</script>
 ```
 
 ## 七、常见问题
