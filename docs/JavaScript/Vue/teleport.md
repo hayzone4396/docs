@@ -1066,15 +1066,13 @@ onBeforeUnmount(() => {
 **答案**：
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue';
 
-interface ModalProps {
-  title: string;
-  visible: boolean;
-}
-
-const props = defineProps<ModalProps>();
+const props = defineProps({
+  title: { type: String, required: true },
+  visible: { type: Boolean, required: true }
+});
 </script>
 
 <template>

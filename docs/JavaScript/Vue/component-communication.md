@@ -122,34 +122,17 @@ console.log(props.count);
 </script>
 ```
 
-#### Vue 3 + TypeScript
+#### Vue 3 (Composition API)
 
 ```vue
-<script setup lang="ts">
-interface User {
-  name: string;
-  age: number;
-}
-
-interface Props {
-  title: string;
-  count?: number;
-  user: User;
-  list?: number[];
-}
-
-// 使用泛型定义 props
-const props = withDefaults(defineProps<Props>(), {
-  count: 0,
-  list: () => []
+<script setup>
+// 使用运行时声明定义 props
+const props = defineProps({
+  title: { type: String, required: true },
+  count: { type: Number, default: 0 },
+  user: { type: Object, required: true },
+  list: { type: Array, default: () => [] }
 });
-
-// 或者使用 defineProps 的类型推导
-const props = defineProps<{
-  title: string;
-  count?: number;
-  user: User;
-}>();
 </script>
 ```
 
@@ -1444,35 +1427,27 @@ provide('config', config);
 </script>
 ```
 
-### 5. 使用 TypeScript 增强类型安全
+### 5. Props 和 Emit 的完整示例
 
 ```vue
-<script setup lang="ts">
-interface User {
-  name: string;
-  age: number;
-}
+<script setup>
+// Props 定义
+const props = defineProps({
+  user: { type: Object, required: true },
+  count: { type: Number, required: true }
+});
 
-// Props 类型
-const props = defineProps<{
-  user: User;
-  count: number;
-}>();
+// Emit 定义
+const emit = defineEmits(['update', 'delete']);
 
-// Emit 类型
-const emit = defineEmits<{
-  update: [user: User];
-  delete: [id: number];
-}>();
+// Provide/Inject 示例
+import { provide, inject } from 'vue';
 
-// Provide/Inject 类型
-import { InjectionKey } from 'vue';
-
-export const UserKey: InjectionKey<User> = Symbol('user');
+export const UserKey = Symbol('user');
 
 provide(UserKey, { name: '张三', age: 25 });
 
-const user = inject(UserKey); // 自动推导类型
+const user = inject(UserKey);
 </script>
 ```
 

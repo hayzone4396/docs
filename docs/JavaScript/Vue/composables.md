@@ -880,29 +880,13 @@ export function useEventListener(target, event, handler) {
 }
 ```
 
-### 5.5 类型定义（TypeScript）
+### 5.5 类型定义（JavaScript）
 
-```typescript
-// composables/useCounter.ts
-import { ref, Ref } from 'vue';
+```javascript
+// composables/useCounter.js
+import { ref } from 'vue';
 
-interface UseCounterOptions {
-  min?: number;
-  max?: number;
-  step?: number;
-}
-
-interface UseCounterReturn {
-  count: Ref<number>;
-  increment: () => void;
-  decrement: () => void;
-  reset: () => void;
-}
-
-export function useCounter(
-  initialValue = 0,
-  options: UseCounterOptions = {}
-): UseCounterReturn {
+export function useCounter(initialValue = 0, options = {}) {
   const { min = -Infinity, max = Infinity, step = 1 } = options;
 
   const count = ref(initialValue);

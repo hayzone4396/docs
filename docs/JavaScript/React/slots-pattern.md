@@ -872,16 +872,12 @@ const LimitedChildren = ({ children, maxItems = 3, showMore = false }) => {
 </LimitedChildren>
 ```
 
-### Children 类型检查（TypeScript）
+### Children 类型检查（JavaScript）
 
-```typescript
-import React, { ReactNode } from 'react';
+```javascript
+import React from 'react';
 
-interface DemoProps {
-  children?: ReactNode; // ReactNode 包含所有可能的 children 类型
-}
-
-const Demo: React.FC<DemoProps> = ({ children }) => {
+const Demo = ({ children }) => {
   // 统一转换为数组
   const items = React.Children.toArray(children);
 
@@ -895,26 +891,26 @@ const Demo: React.FC<DemoProps> = ({ children }) => {
 };
 ```
 
-**常用的 Children 类型：**
+**常用的 Children 类型说明：**
 
-```typescript
-// 1. 最宽泛的类型
-children?: ReactNode
+```javascript
+// 1. 最宽泛的类型 - 任何可渲染内容
+children
 
 // 2. 只接受单个 React 元素
-children: ReactElement
+// 需要在运行时检查: React.Children.only(children)
 
 // 3. 只接受单个或多个 React 元素
-children: ReactElement | ReactElement[]
+// 可以使用 React.Children.toArray 统一处理
 
 // 4. 只接受字符串
-children: string
+// 需要运行时检查: typeof children === 'string'
 
-// 5. Render Props
-children: (data: any) => ReactNode
+// 5. Render Props - 函数形式
+// children(data)
 
 // 6. 特定组件类型
-children: ReactElement<ButtonProps>
+// 需要运行时检查: child.type === Button
 ```
 
 ### 最佳实践
@@ -1345,21 +1341,13 @@ const renderUser = useCallback((user) => <div>{user.name}</div>, []);
 </List>
 ```
 
-## TypeScript 支持
+## JavaScript 中的类型说明
 
 ### 定义插槽类型
 
-```typescript
-// components/Card.tsx
-interface CardProps {
-  header?: React.ReactNode;
-  footer?: React.ReactNode;
-  actions?: React.ReactNode;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-}
-
-const Card: React.FC<CardProps> = ({
+```javascript
+// components/Card.jsx
+const Card = ({
   header,
   footer,
   actions,
@@ -1379,21 +1367,10 @@ const Card: React.FC<CardProps> = ({
 export default Card;
 ```
 
-### 作用域插槽的类型
+### 作用域插槽示例
 
-```typescript
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
-interface ListProps<T> {
-  items: T[];
-  children: (item: T, index: number) => React.ReactNode;
-}
-
-function List<T>({ items, children }: ListProps<T>) {
+```javascript
+function List({ items, children }) {
   return (
     <ul>
       {items.map((item, index) => (
@@ -1403,11 +1380,15 @@ function List<T>({ items, children }: ListProps<T>) {
   );
 }
 
-// 使用时有类型提示
-<List<User> items={users}>
+// 使用示例
+const users = [
+  { id: 1, name: 'Alice', email: 'alice@example.com' },
+  { id: 2, name: 'Bob', email: 'bob@example.com' }
+];
+
+<List items={users}>
   {(user, index) => (
     <div>
-      {/* user 和 index 都有类型 */}
       {index}. {user.name} - {user.email}
     </div>
   )}

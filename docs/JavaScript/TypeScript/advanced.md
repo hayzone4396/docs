@@ -37,7 +37,7 @@ type Combined = TypeA & TypeB;
 ### 映射类型
 
 ```typescript
-type Readonly<T> = {
+type ReadonlyType<T> = {
   readonly [P in keyof T]: T[P];
 };
 ```

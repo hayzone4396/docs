@@ -136,39 +136,34 @@ count.value = 10;
 console.log(doubleCount.value); // 'computed 执行' 20
 ```
 
-### 1.4 TypeScript 类型推导
+### 1.4 Computed 进阶用法
 
-```typescript
-import { ref, computed, ComputedRef } from 'vue';
+```javascript
+import { ref, computed } from 'vue';
 
-// 自动推导类型
+// 基本用法
 const count = ref(0);
-const doubleCount = computed(() => count.value * 2); // ComputedRef<number>
+const doubleCount = computed(() => count.value * 2);
 
-// 显式类型注解
+// 格式化显示
 const price = ref(100);
-const formattedPrice = computed<string>(() => {
+const formattedPrice = computed(() => {
   return `¥${price.value}`;
 });
 
-// 复杂类型
-interface User {
-  name: string;
-  age: number;
-}
+// 对象数据
+const user = ref({ name: '张三', age: 25 });
 
-const user = ref<User>({ name: '张三', age: 25 });
-
-const userInfo = computed<string>(() => {
+const userInfo = computed(() => {
   return `${user.value.name} - ${user.value.age}岁`;
 });
 
-// 可写计算属性类型
-const fullName = computed<string>({
+// 可写计算属性
+const fullName = computed({
   get() {
     return `${user.value.name}`;
   },
-  set(newValue: string) {
+  set(newValue) {
     user.value.name = newValue;
   }
 });

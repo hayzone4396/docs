@@ -855,18 +855,13 @@ cartSlice.js      // 购物车相关
 appSlice.js       // 包含所有状态
 ```
 
-### 5. TypeScript 支持
+### 5. JavaScript 实现
 
-```typescript
-// store/modules/counterSlice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+```javascript
+// store/modules/counterSlice.js
+import { createSlice } from '@reduxjs/toolkit';
 
-interface CounterState {
-  count: number;
-  loading: boolean;
-}
-
-const initialState: CounterState = {
+const initialState = {
   count: 0,
   loading: false,
 };
@@ -878,7 +873,7 @@ const counterSlice = createSlice({
     increment(state) {
       state.count += 1;
     },
-    incrementByAmount(state, action: PayloadAction<number>) {
+    incrementByAmount(state, action) {
       state.count += action.payload;
     },
   },
@@ -888,8 +883,8 @@ export const { increment, incrementByAmount } = counterSlice.actions;
 export default counterSlice.reducer;
 ```
 
-```typescript
-// store/index.ts
+```javascript
+// store/index.js
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './modules/counterSlice';
 
@@ -899,21 +894,16 @@ const store = configureStore({
   },
 });
 
-// 导出类型
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
 export default store;
 ```
 
-```typescript
-// hooks/useTypedSelector.ts
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from '@/store';
+```javascript
+// hooks/useAppHooks.js
+import { useDispatch, useSelector } from 'react-redux';
 
-// 类型化的 hooks
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+// 自定义 hooks
+export const useAppDispatch = () => useDispatch();
+export const useAppSelector = useSelector;
 ```
 
 ## Redux DevTools

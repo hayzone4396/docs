@@ -932,24 +932,16 @@ function Component() {
 }
 ```
 
-## 七、TypeScript 中的自定义 Hooks
+## 七、JavaScript 中的自定义 Hooks
 
-```typescript
+```javascript
 import { useState, useEffect } from 'react';
 
-// 定义返回类型
-interface UseFetchResult<T> {
-  data: T | null;
-  loading: boolean;
-  error: string | null;
-  refetch: () => Promise<void>;
-}
-
-// 泛型自定义 Hook
-function useFetch<T>(url: string): UseFetchResult<T> {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+// 自定义 Hook
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     setLoading(true);
@@ -960,7 +952,7 @@ function useFetch<T>(url: string): UseFetchResult<T> {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      const result: T = await response.json();
+      const result = await response.json();
       setData(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
@@ -977,14 +969,8 @@ function useFetch<T>(url: string): UseFetchResult<T> {
 }
 
 // 使用
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
 function UserList() {
-  const { data, loading, error, refetch } = useFetch<User[]>(
+  const { data, loading, error, refetch } = useFetch(
     'https://api.example.com/users'
   );
 

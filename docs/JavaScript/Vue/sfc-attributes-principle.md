@@ -526,10 +526,10 @@ interface User {
 
 export default defineComponent({
   setup() {
-    const user = ref<User>({ id: 1, name: 'John' });
-    const count = ref<number>(0);
+    const user = ref({ id: 1, name: 'John' });
+    const count = ref(0);
 
-    const increment = (): void => {
+    const increment = () => {
       count.value++;
     };
 
@@ -625,19 +625,16 @@ vue-tsc --noEmit
 ##### 1. 源代码示例
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { ref, computed } from 'vue';
 import ChildComponent from './Child.vue';
 
-const props = defineProps<{
-  title: string;
-  count?: number;
-}>();
+const props = defineProps({
+  title: { type: String, required: true },
+  count: { type: Number, default: 0 }
+});
 
-const emit = defineEmits<{
-  update: [value: number];
-  delete: [];
-}>();
+const emit = defineEmits(['update', 'delete']);
 
 const count = ref(0);
 const doubleCount = computed(() => count.value * 2);
@@ -751,14 +748,14 @@ export default {
 
 ```javascript
 // defineProps 编译
-defineProps<{ msg: string }>()
+defineProps({ msg: { type: String, required: true } })
   ↓
 props: {
   msg: { type: String, required: true }
 }
 
 // defineEmits 编译
-const emit = defineEmits<{ click: [] }>()
+const emit = defineEmits(['click'])
   ↓
 emits: ['click']
 setup(__props, { emit }) {
@@ -876,16 +873,20 @@ export default {
 
 ```javascript
 // 源代码
-const props = defineProps<{ msg: string }>();
+const props = defineProps({
+  msg: { type: String, required: true }
+});
 
-// defineProps 的"假"定义（仅用于类型推导）
-declare function defineProps<T>(): T;
+// defineProps 的定义
+function defineProps(options) {
+  // 运行时处理 props 定义
+  return options;
+}
 
 // 编译器识别到 defineProps 调用
-// 1. 提取类型参数 T = { msg: string }
-// 2. 转换为运行时 props 定义
-// 3. 移除 defineProps 调用
-// 4. 生成 props 访问代码
+// 1. 提取 props 定义对象
+// 2. 转换为组件的 props 选项
+// 3. 生成 props 访问代码
 ```
 
 **编译器处理：**
@@ -1141,18 +1142,15 @@ export function vuePlugin(options) {
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, computed } from 'vue';
 
-interface Props {
-  name: string;
-  initialAge?: number;
-}
+const props = defineProps({
+  name: { type: String, required: true },
+  initialAge: { type: Number, default: 0 }
+});
 
-const props = defineProps<Props>();
-const emit = defineEmits<{
-  update: [age: number];
-}>();
+const emit = defineEmits(['update']);
 
 const age = ref(props.initialAge || 0);
 const doubleAge = computed(() => age.value * 2);
@@ -1531,15 +1529,18 @@ setup(__props, { emit }) {
 
 **答案**：它是编译器宏，不是真实的函数。
 
-```typescript
-// Vue 源码中的类型声明（仅用于类型推导）
-declare function defineProps<T>(): T;
-
-// 编译时被移除
-const props = defineProps<{ msg: string }>();
+```javascript
+// defineProps 的运行时版本
+const props = defineProps({
+  msg: { type: String, required: true }
+});
   ↓
-// 运行时不存在 defineProps
+// 编译后生成
 props: { msg: { type: String, required: true } }
+setup(__props) {
+  const props = __props;
+  return { props };
+}
 ```
 
 ## 参考资源

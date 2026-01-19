@@ -845,25 +845,24 @@ function GoodExample() {
 }
 ```
 
-## 八、TypeScript 中的 useRef
+## 八、JavaScript 中的 useRef
 
 ### 基本类型
 
-```typescript
+```javascript
 import { useRef } from 'react';
 
-function TypeScriptExample() {
+function Example() {
   // DOM 元素引用
-  const inputRef = useRef<HTMLInputElement>(null);
-  const divRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const inputRef = useRef(null);
+  const divRef = useRef(null);
+  const videoRef = useRef(null);
 
   // 可变值引用
-  const countRef = useRef<number>(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const countRef = useRef(0);
+  const timerRef = useRef(null);
 
   const handleFocus = () => {
-    // TypeScript 知道这是 HTMLInputElement
     inputRef.current?.focus();
   };
 
@@ -878,23 +877,12 @@ function TypeScriptExample() {
 
 ### forwardRef 类型
 
-```typescript
+```javascript
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
-// 定义暴露的方法类型
-interface ChildHandle {
-  focus: () => void;
-  getValue: () => string;
-}
-
-// 定义 props 类型
-interface ChildProps {
-  defaultValue?: string;
-}
-
 // 子组件
-const Child = forwardRef<ChildHandle, ChildProps>((props, ref) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const Child = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
     focus: () => {
@@ -910,7 +898,7 @@ const Child = forwardRef<ChildHandle, ChildProps>((props, ref) => {
 
 // 父组件
 function Parent() {
-  const childRef = useRef<ChildHandle>(null);
+  const childRef = useRef(null);
 
   const handleClick = () => {
     childRef.current?.focus();

@@ -681,27 +681,15 @@ function withEnhancement(WrappedComponent) {
 }
 ```
 
-## 七、TypeScript 中的 HOC
+## 七、JavaScript 中的 HOC
 
-### 基础类型定义
+### 基础实现
 
-```typescript
-import React, { ComponentType } from 'react';
-
-// HOC 的类型定义
-type HOC<InjectedProps, OriginalProps = {}> = (
-  Component: ComponentType<OriginalProps & InjectedProps>
-) => ComponentType<OriginalProps>;
+```javascript
+import React from 'react';
 
 // 示例：注入 user 属性
-interface InjectedUserProps {
-  user: {
-    name: string;
-    age: number;
-  };
-}
-
-const withUser: HOC<InjectedUserProps> = (WrappedComponent) => {
+const withUser = (WrappedComponent) => {
   return function EnhancedComponent(props) {
     const user = { name: 'zhangsan', age: 25 };
     return <WrappedComponent {...props} user={user} />;
@@ -709,11 +697,7 @@ const withUser: HOC<InjectedUserProps> = (WrappedComponent) => {
 };
 
 // 使用
-interface ProfileProps extends InjectedUserProps {
-  title: string;
-}
-
-const Profile: React.FC<ProfileProps> = ({ user, title }) => {
+const Profile = ({ user, title }) => {
   return (
     <div>
       <h2>{title}</h2>
@@ -725,35 +709,24 @@ const Profile: React.FC<ProfileProps> = ({ user, title }) => {
 const EnhancedProfile = withUser(Profile);
 ```
 
-### 完整的 TypeScript 示例
+### 完整的 JavaScript 示例
 
-```typescript
-import React, { ComponentType } from 'react';
+```javascript
+import React from 'react';
 
-// 注入的 props 类型
-interface WithLoadingProps {
-  loading: boolean;
-}
-
-// HOC 函数类型
-function withLoading<P extends object>(
-  Component: ComponentType<P>
-): ComponentType<P & WithLoadingProps> {
-  return function WithLoadingComponent({ loading, ...props }: WithLoadingProps) {
+// HOC 函数
+function withLoading(Component) {
+  return function WithLoadingComponent({ loading, ...props }) {
     if (loading) {
       return <div>Loading...</div>;
     }
 
-    return <Component {...(props as P)} />;
+    return <Component {...props} />;
   };
 }
 
 // 使用
-interface UserListProps {
-  users: Array<{ id: number; name: string }>;
-}
-
-const UserList: React.FC<UserListProps> = ({ users }) => {
+const UserList = ({ users }) => {
   return (
     <ul>
       {users.map((user) => (
