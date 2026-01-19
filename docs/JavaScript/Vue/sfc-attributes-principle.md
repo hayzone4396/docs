@@ -1459,7 +1459,7 @@ export default defineComponent({
 }
 ```
 
-### Q2: <script setup> 中如何访问组件实例？
+### Q2: `<script setup>` 中如何访问组件实例？
 
 **答案**：使用 `getCurrentInstance()`
 
@@ -1478,7 +1478,7 @@ console.log(proxy.$el);
 </script>
 ```
 
-### Q3: 为什么不能在 <script setup> 中使用 this？
+### Q3: 为什么不能在 `<script setup>` 中使用 this？
 
 **原因**：`<script setup>` 在 setup 函数中执行，此时组件实例还未创建。
 
@@ -1547,7 +1547,7 @@ setup(__props) {
 
 ### 官方文档
 - [Vue SFC 规范](https://cn.vuejs.org/api/sfc-spec.html)
-- [<script setup> 文档](https://cn.vuejs.org/api/sfc-script-setup.html)
+- [`<script setup>` 文档](https://cn.vuejs.org/api/sfc-script-setup.html)
 - [CSS 功能](https://cn.vuejs.org/api/sfc-css-features.html)
 - [SFC 工具](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
 
@@ -1559,7 +1559,7 @@ setup(__props) {
 ### 深入文章
 - [Vue 3 Compiler 原理](https://juejin.cn/post/7031654258783723534)
 - [Scoped CSS 实现原理](https://vue-loader.vuejs.org/guide/scoped-css.html)
-- [<script setup> RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.html)
+- [`<script setup>` RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.html)
 
 ### 工具
 - [Vue SFC Playground](https://sfc.vuejs.org/) - 在线编译查看

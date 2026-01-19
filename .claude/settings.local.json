@@ -8,7 +8,9 @@
       "Bash(grep:*)",
       "Bash(git push:*)",
       "Bash(git remote set-url:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(npm run docs:build:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
