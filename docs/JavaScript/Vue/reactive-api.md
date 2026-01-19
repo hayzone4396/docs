@@ -154,7 +154,7 @@ console.log(map.get('count').value); // ⚠️ 需要 .value
 
 ### 1.4 ref 的类型定义（TypeScript）
 
-```typescript
+```javascript
 import { ref, Ref } from 'vue';
 
 // 自动推导类型
@@ -331,7 +331,7 @@ state.list.push({ id: 2, name: '项目3' }); // ✅ 响应式
 
 ### 2.4 TypeScript 类型定义
 
-```typescript
+```javascript
 import { reactive } from 'vue';
 
 // 接口定义
