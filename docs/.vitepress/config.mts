@@ -58,7 +58,7 @@ export default defineConfig({
       { text: '小程序', link: '/MiniProgram/' },
       { text: '架构', link: '/Architecture/' },
       { text: 'AI', link: '/AI/' },
-      { text: '美文一览', link: '/Life/' },
+      { text: '流年絮语', link: '/Life/' },
     ],
     // 友链
     socialLinks: [
@@ -70,6 +70,7 @@ export default defineConfig({
     // 侧边栏
     sidebar: {
       '/Life/': [
+        { text: '珍惜时光，记忆童年', link: '/Life/childhood-memories' },
         { text: '让高飞的心永不沉沦', link: '/Life/soaring-heart' },
         { text: '归去来兮辞', link: '/Life/returning-home' },
         { text: '山的那边', link: '/Life/beyond-the-mountains' },
