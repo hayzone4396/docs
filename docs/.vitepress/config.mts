@@ -109,6 +109,10 @@ export default defineConfig({
               link: '/JavaScript/React/redux-guide',
             },
             {
+              text: 'Zustand 状态管理完全指南',
+              link: '/JavaScript/React/zustand-guide',
+            },
+            {
               text: 'Context API 完全指南',
               link: '/JavaScript/React/context-api',
             },

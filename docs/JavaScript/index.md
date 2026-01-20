@@ -20,6 +20,7 @@ recommend: false
 - [React 合成事件原理](./React/synthetic-events.md)
 - [React Router 完全指南](./React/react-router.md)
 - [Redux 状态管理完全指南](./React/redux-guide.md)
+- [Zustand 状态管理完全指南](./React/zustand-guide.md)
 - [Context API 完全指南](./React/context-api.md)
 - [React 插槽模式完全指南](./React/slots-pattern.md)
 - [React Hooks](./React/Hooks.md)

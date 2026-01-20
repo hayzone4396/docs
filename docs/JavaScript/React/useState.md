@@ -884,7 +884,9 @@ function BadExample() {
   const [selected, setSelected] = useState([]);
 
   const handleClick = (id) => {
-    setSelected([...selected, id]); // 创建新数组
+    // 这里的 selected 是闭包捕获的值
+    // 如果快速点击多次，可能读到的都是旧值
+    setSelected([...selected, id]); 
   };
 }
 
@@ -893,6 +895,7 @@ function GoodExample() {
   const [selected, setSelected] = useState([]);
 
   const handleClick = (id) => {
+    // prev 总是最新的 state 值
     setSelected((prev) => [...prev, id]);
   };
 }
