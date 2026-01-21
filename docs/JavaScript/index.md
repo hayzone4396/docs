@@ -13,6 +13,8 @@ recommend: false
 - [JavaScript 异步编程](./async-programming.md)
 - [移动端点击事件 300ms 延迟问题](./mobile-click-delay.md)
 - [对象不可变性规则](./object-immutability.md)
+- [箭头函数](./arrow-function.md)
+- [地址栏URL，闭包，NEW关键字](./core-concepts.md)
 
 # React
 
@@ -56,8 +58,6 @@ recommend: false
 - [Vue Composables（组合式函数）完全指南](./Vue/composables.md)
 - [Vue 生命周期钩子完全指南](./Vue/lifecycle.md)
 - [Vue Router 完全指南](./Vue/vue-router.md)
-- [Vue 状态管理](./Vue/state-management.md)
-- [Vue Composition API](./Vue/composition-api.md)
 
 # HTTP
 

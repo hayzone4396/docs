@@ -89,6 +89,8 @@ export default defineConfig({
             { text: '异步编程', link: '/JavaScript/async-programming' },
             { text: '移动端点击事件 300ms 延迟', link: '/JavaScript/mobile-click-delay' },
             { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
+            { text: '箭头函数', link: '/JavaScript/arrow-function' },
+            { text: '地址栏URL，闭包，NEW关键字', link: '/JavaScript/core-concepts' },
           ],
         },
         {
@@ -215,11 +217,6 @@ export default defineConfig({
             {
               text: 'Vue Router',
               link: '/JavaScript/Vue/vue-router',
-            },
-            { text: '状态管理', link: '/JavaScript/Vue/state-management' },
-            {
-              text: 'Composition API',
-              link: '/JavaScript/Vue/composition-api',
             },
           ],
         },
