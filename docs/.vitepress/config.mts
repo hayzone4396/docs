@@ -81,12 +81,13 @@ export default defineConfig({
       ],
       '/JavaScript/': [
         {
-          text: 'ES6+',
-          collapsed: false,
+          text: 'JavaScript',
+          collapsed: true,
           items: [
             { text: '基础', link: '/JavaScript/basic' },
             { text: 'ES6+ 新特性', link: '/JavaScript/es6-new-features' },
             { text: '异步编程', link: '/JavaScript/async-programming' },
+            { text: '标签切换竞态条件问题与解决方案', link: '/JavaScript/tab-switch-race-condition' },
             { text: '移动端点击事件 300ms 延迟', link: '/JavaScript/mobile-click-delay' },
             { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
             { text: '箭头函数', link: '/JavaScript/arrow-function' },
@@ -249,6 +250,10 @@ export default defineConfig({
         {
           text: 'CSS 预处理器完全指南',
           link: '/Css/css-preprocessors',
+        },
+        {
+          text: 'Flex 与 Grid 布局完全指南',
+          link: '/Css/flex-grid-layout',
         },
         { text: '元素快速居中', link: '/Css/element-center' },
         {
