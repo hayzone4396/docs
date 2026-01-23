@@ -1,7 +1,11 @@
 ---
 title: WebRTC 完全指南
 description: 深入了解 WebRTC 实时通信技术，包括原理解析、实战应用及点对点连接实现
-date: 2026-01-23
+tags:
+  - WebRTC
+  - 实时通信
+  - 点对点连接
+date: 2026-01-23 15:40:00
 ---
 
 # WebRTC 完全指南

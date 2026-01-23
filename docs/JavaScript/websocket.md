@@ -1,7 +1,11 @@
 ---
 title: WebSocket 完全指南
 description: 深入了解 WebSocket 协议，包括实战封装、心跳检测、断线重连机制及应用场景
-date: 2026-01-23
+tags:
+  - WebSocket
+  - 实时通信
+  - 全双工通信
+date: 2026-01-23 15:40:00
 ---
 
 # WebSocket 完全指南
