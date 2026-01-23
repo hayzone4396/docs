@@ -92,6 +92,8 @@ export default defineConfig({
             { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
             { text: '箭头函数', link: '/JavaScript/arrow-function' },
             { text: '地址栏URL，闭包，NEW关键字', link: '/JavaScript/core-concepts' },
+            { text: 'WebSocket 完全指南', link: '/JavaScript/websocket' },
+            { text: 'WebRTC 完全指南', link: '/JavaScript/webrtc' },
           ],
         },
         {
@@ -232,7 +234,7 @@ export default defineConfig({
         },
         {
           text: 'HTTP',
-          collapsed: true, // 默认展开，true 为折叠
+          collapsed: true,
           items: [
             {
               text: 'HTTP 缓存完全指南',
@@ -242,6 +244,16 @@ export default defineConfig({
             {
               text: 'HTTP 缓存与 HTTP2 核心要点',
               link: '/JavaScript/Http/http-cache-http2-core',
+            },
+          ],
+        },
+        {
+          text: '性能优化',
+          collapsed: true,
+          items: [
+            {
+              text: '前端性能优化完全指南',
+              link: '/JavaScript/Optimization/performance-optimization-guide',
             },
           ],
         },

@@ -16,6 +16,8 @@ recommend: false
 - [对象不可变性规则](./object-immutability.md)
 - [箭头函数](./arrow-function.md)
 - [地址栏URL，闭包，NEW关键字](./core-concepts.md)
+- [WebSocket 完全指南](./websocket.md)
+- [WebRTC 完全指南](./webrtc.md)
 
 # React
 
@@ -65,3 +67,7 @@ recommend: false
 - [HTTP 缓存完全指南](./Http/http-cache-guide.md)
 - [HTTP2 完全指南](./Http/http2-guide.md)
 - [HTTP 缓存与 HTTP2 核心要点](./Http/http-cache-http2-core.md)
+
+# 性能优化
+
+- [前端性能优化完全指南](./Optimization/performance-optimization-guide.md)
