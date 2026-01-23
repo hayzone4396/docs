@@ -87,6 +87,7 @@ export default defineConfig({
             { text: '基础', link: '/JavaScript/basic' },
             { text: 'ES6+ 新特性', link: '/JavaScript/es6-new-features' },
             { text: '异步编程', link: '/JavaScript/async-programming' },
+            { text: 'Promise 完全指南', link: '/JavaScript/promise' },
             { text: '标签切换竞态条件问题与解决方案', link: '/JavaScript/tab-switch-race-condition' },
             { text: '移动端点击事件 300ms 延迟', link: '/JavaScript/mobile-click-delay' },
             { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
@@ -266,6 +267,10 @@ export default defineConfig({
         {
           text: 'Flex 与 Grid 布局完全指南',
           link: '/Css/flex-grid-layout',
+        },
+        {
+          text: 'CSS 渲染原理与视觉特效',
+          link: '/Css/css-rendering-and-effects',
         },
         { text: '元素快速居中', link: '/Css/element-center' },
         {

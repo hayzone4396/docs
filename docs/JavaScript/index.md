@@ -11,6 +11,7 @@ recommend: false
 - [JavaScript 基础](./basic.md)
 - [ES6+ 新特性](./es6-new-features.md)
 - [JavaScript 异步编程](./async-programming.md)
+- [Promise 完全指南](./promise.md)
 - [标签切换竞态条件问题与解决方案](./tab-switch-race-condition.md)
 - [移动端点击事件 300ms 延迟问题](./mobile-click-delay.md)
 - [对象不可变性规则](./object-immutability.md)
