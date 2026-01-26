@@ -9,6 +9,7 @@ categories:
 
 ---
 
+
 ## 面试题：如何实现浏览器缩小字体效果？
 
 **答案：** 使用 `transform: scale(0.6)`

@@ -12,6 +12,7 @@ recommend: false
 - [ES6+ 新特性](./es6-new-features.md)
 - [JavaScript 异步编程](./async-programming.md)
 - [Promise 完全指南](./promise.md)
+- [JavaScript 异步机制深度解析](./async-mechanism-deep-dive.md)
 - [标签切换竞态条件问题与解决方案](./tab-switch-race-condition.md)
 - [移动端点击事件 300ms 延迟问题](./mobile-click-delay.md)
 - [对象不可变性规则](./object-immutability.md)
@@ -19,6 +20,10 @@ recommend: false
 - [地址栏URL，闭包，NEW关键字](./core-concepts.md)
 - [WebSocket 完全指南](./websocket.md)
 - [WebRTC 完全指南](./webrtc.md)
+- [大数据精度丢失与前端处理方案](./bignumber-precision.md)
+- [JavaScript 字符串代码执行方法详解](./execute-string-code.md)
+- [CSS 高度自适应动画实现方案](./height-animation-auto.md)
+- [Base64 编码原理与应用](./base64-encoding.md)
 
 # React
 

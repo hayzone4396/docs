@@ -88,6 +88,7 @@ export default defineConfig({
             { text: 'ES6+ 新特性', link: '/JavaScript/es6-new-features' },
             { text: '异步编程', link: '/JavaScript/async-programming' },
             { text: 'Promise 完全指南', link: '/JavaScript/promise' },
+            { text: 'JavaScript 异步机制深度解析', link: '/JavaScript/async-mechanism-deep-dive' },
             { text: '标签切换竞态条件问题与解决方案', link: '/JavaScript/tab-switch-race-condition' },
             { text: '移动端点击事件 300ms 延迟', link: '/JavaScript/mobile-click-delay' },
             { text: '对象不可变性规则', link: '/JavaScript/object-immutability' },
@@ -95,6 +96,10 @@ export default defineConfig({
             { text: '地址栏URL，闭包，NEW关键字', link: '/JavaScript/core-concepts' },
             { text: 'WebSocket 完全指南', link: '/JavaScript/websocket' },
             { text: 'WebRTC 完全指南', link: '/JavaScript/webrtc' },
+            { text: '大数据精度丢失与前端处理方案', link: '/JavaScript/bignumber-precision' },
+            { text: 'JavaScript 字符串代码执行方法详解', link: '/JavaScript/execute-string-code' },
+            { text: 'CSS 高度自适应动画实现方案', link: '/JavaScript/height-animation-auto' },
+            { text: 'Base64 编码原理与应用', link: '/JavaScript/base64-encoding' },
           ],
         },
         {
@@ -222,6 +227,14 @@ export default defineConfig({
               text: 'Vue Router',
               link: '/JavaScript/Vue/vue-router',
             },
+            {
+              text: 'Proxy vs Object.defineProperty 深度对比',
+              link: '/JavaScript/Vue/proxy-vs-defineproperty',
+            },
+            {
+              text: 'Vue 3 组件暴露机制 - expose 详解',
+              link: '/JavaScript/Vue/setup-expose',
+            },
           ],
         },
         {
@@ -302,6 +315,10 @@ export default defineConfig({
           link: '/Architecture/microservices-architecture',
         },
         { text: '系统设计', link: '/Architecture/system-design' },
+        {
+          text: '组件封装最佳实践指南',
+          link: '/Architecture/component-encapsulation',
+        },
       ],
       '/AI/': [
         { text: '机器学习基础', link: '/AI/machine-learning-basics' },
@@ -316,6 +333,7 @@ export default defineConfig({
           items: [
             { text: '基础概述', link: '/Nodejs/basic-overview' },
             { text: '异步编程', link: '/Nodejs/async-programming' },
+            { text: '模块解析策略', link: '/Nodejs/module-resolution' },
           ],
         },
         {
