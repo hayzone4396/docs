@@ -608,24 +608,24 @@ onUnmounted(() => {
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: rgba(139, 92, 246, 0.06);
+  background: rgba(139, 92, 246, 0.04);
   border-radius: 12px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.08);
   transition: all 0.3s ease;
 }
 
 .zodiac-sign:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.06);
+  border-color: rgba(139, 92, 246, 0.12);
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 1px 3px rgba(139, 92, 246, 0.08);
 }
 
 .zodiac-icon {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
-  filter: drop-shadow(0 1px 3px rgba(139, 92, 246, 0.25));
-  opacity: 0.9;
+  filter: none;
+  opacity: 0.75;
 }
 
 .zodiac-name {
@@ -633,7 +633,7 @@ onUnmounted(() => {
   font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.3px;
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
 .festival-tag {
@@ -641,11 +641,11 @@ onUnmounted(() => {
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.3px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 @keyframes pendulum-swing {
@@ -693,28 +693,28 @@ html.dark .digital-lunar {
 }
 
 html.dark .zodiac-sign {
-  background: rgba(196, 181, 253, 0.08);
-  border-color: rgba(196, 181, 253, 0.2);
+  background: rgba(196, 181, 253, 0.04);
+  border-color: rgba(196, 181, 253, 0.08);
 }
 
 html.dark .zodiac-sign:hover {
-  background: rgba(196, 181, 253, 0.12);
-  border-color: rgba(196, 181, 253, 0.3);
-  box-shadow: 0 2px 6px rgba(196, 181, 253, 0.2);
+  background: rgba(196, 181, 253, 0.06);
+  border-color: rgba(196, 181, 253, 0.12);
+  box-shadow: 0 1px 3px rgba(196, 181, 253, 0.1);
 }
 
 html.dark .zodiac-icon {
-  filter: drop-shadow(0 1px 3px rgba(196, 181, 253, 0.3));
-  opacity: 0.85;
+  filter: none;
+  opacity: 0.7;
 }
 
 html.dark .zodiac-name {
   color: #c4b5fd;
-  opacity: 0.8;
+  opacity: 0.65;
 }
 
 html.dark .festival-tag {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0.9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 </style>
