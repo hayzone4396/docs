@@ -11,7 +11,8 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "@sugarat/theme": "^0.5.14"
+    "@sugarat/theme": "^0.5.14",
+    "lunar-javascript": "^1.7.7"
   },
   "directories": {
     "doc": "docs"

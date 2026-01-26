@@ -11,6 +11,9 @@ importers:
       '@sugarat/theme':
         specifier: ^0.5.14
         version: 0.5.14(@element-plus/icons-vue@2.3.2(vue@3.5.26(typescript@5.9.3)))(element-plus@2.11.3(vue@3.5.26(typescript@5.9.3)))(pagefind@1.4.0)(vite@7.3.1(@types/node@22.19.3)(sass-embedded@1.97.2)(sass@1.97.2))(vitepress@2.0.0-alpha.15(@algolia/client-search@5.46.2)(@types/node@22.19.3)(async-validator@4.2.5)(postcss@8.5.6)(react@19.2.3)(sass-embedded@1.97.2)(sass@1.97.2)(search-insights@2.17.3)(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))
+      lunar-javascript:
+        specifier: ^1.7.7
+        version: 1.7.7
     devDependencies:
       pagefind:
         specifier: ^1.3.0
@@ -1471,6 +1474,9 @@ packages:
 
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
+  lunar-javascript@1.7.7:
+    resolution: {integrity: sha512-u/KYiwPIBo/0bT+WWfU7qO1d+aqeB90Tuy4ErXenr2Gam0QcWeezUvtiOIyXR7HbVnW2I1DKfU0NBvzMZhbVQw==}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -3488,6 +3494,8 @@ snapshots:
       lodash-es: 4.17.22
 
   lodash@4.17.21: {}
+
+  lunar-javascript@1.7.7: {}
 
   magic-string@0.30.21:
     dependencies:
