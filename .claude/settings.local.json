@@ -12,7 +12,8 @@
       "Bash(npm run docs:build:*)",
       "Bash(npm run:*)",
       "Bash(ls:*)",
-      "Bash(pnpm dev)"
+      "Bash(pnpm dev)",
+      "Bash(pnpm run dev:*)"
     ]
   }
 }
