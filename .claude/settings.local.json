@@ -13,7 +13,9 @@
       "Bash(npm run:*)",
       "Bash(ls:*)",
       "Bash(pnpm dev)",
-      "Bash(pnpm run dev:*)"
+      "Bash(pnpm run dev:*)",
+      "WebSearch",
+      "Bash(node:*)"
     ]
   }
 }
