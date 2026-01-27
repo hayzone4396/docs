@@ -12,3 +12,4 @@ updated: 2026-01-15 14:35:00
 - [微服务架构](./microservices-architecture.md)
 - [系统设计](./system-design.md)
 - [组件封装最佳实践指南](./component-encapsulation.md)
+- [前端加密解密方案](./frontend-encryption.md)

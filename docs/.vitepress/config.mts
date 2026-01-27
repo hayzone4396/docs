@@ -184,6 +184,10 @@ export default defineConfig({
           items: [
             { text: '概述', link: '/JavaScript/Vue/overview' },
             {
+              text: 'Vue3 核心原理深度解析',
+              link: '/JavaScript/Vue/vue3-core-concepts',
+            },
+            {
               text: 'Teleport 传送门完全指南',
               link: '/JavaScript/Vue/teleport',
             },
@@ -318,6 +322,10 @@ export default defineConfig({
         {
           text: '组件封装最佳实践指南',
           link: '/Architecture/component-encapsulation',
+        },
+        {
+          text: '前端加密解密方案',
+          link: '/Architecture/frontend-encryption',
         },
       ],
       '/AI/': [
