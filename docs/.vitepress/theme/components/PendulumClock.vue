@@ -142,6 +142,9 @@ const minuteAngle = ref(0);
 // 数字时钟相关
 const currentTime = ref(new Date());
 
+// 节日轮播索引
+const currentFestivalIndex = ref(0);
+
 // 星期映射
 const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
 
@@ -637,14 +640,34 @@ const lunarDate = computed(() => {
   const zodiacIndex = (lunar.getYear() - 4) % 12;
   const zodiac = zodiacEmoji[zodiacIndex];
 
-  // 优先级：农历节日 > 公历节日 > 寒食节 > 节气
+  // 收集当天所有的节日和节气
   const lunarFestival = getTraditionalFestival(lunar);
   const solarFestival = getSolarFestival(solar);
   const floatingFestival = getFloatingSolarFestival(solar);
   const hanshiFestival = getHanshiFestival(solar);
   const solarTerm = getSolarTerm(solar);
 
-  let specialDay = lunarFestival || solarFestival || floatingFestival || hanshiFestival || solarTerm;
+  // 将所有当天的节日收集到数组中
+  const todayFestivals = [
+    lunarFestival,
+    solarFestival,
+    floatingFestival,
+    hanshiFestival,
+    solarTerm
+  ].filter(Boolean); // 过滤掉 null/undefined
+
+  let specialDay = null;
+
+  // 如果当天有节日/节气
+  if (todayFestivals.length > 0) {
+    // 如果有多个，使用轮播索引；如果只有一个，直接显示
+    if (todayFestivals.length > 1) {
+      const index = currentFestivalIndex.value % todayFestivals.length;
+      specialDay = todayFestivals[index];
+    } else {
+      specialDay = todayFestivals[0];
+    }
+  }
 
   // 如果当天没有节日或节气，显示下一个节日/节气的倒计时
   if (!specialDay) {
@@ -702,6 +725,7 @@ const timeTheme = computed(() => {
 });
 
 let intervalId = null;
+let festivalRotateIntervalId = null;
 
 function updateTime() {
   const now = new Date();
@@ -714,6 +738,11 @@ function updateTime() {
   minuteAngle.value = minutes * 6;
 }
 
+// 轮播节日
+function rotateFestival() {
+  currentFestivalIndex.value++;
+}
+
 function handleClockClick(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -723,11 +752,17 @@ function handleClockClick(event) {
 onMounted(() => {
   updateTime();
   intervalId = setInterval(updateTime, 1000);
+
+  // 启动节日轮播定时器，每5分钟切换一次
+  festivalRotateIntervalId = setInterval(rotateFestival, 5 * 60 * 1000);
 });
 
 onUnmounted(() => {
   if (intervalId) {
     clearInterval(intervalId);
+  }
+  if (festivalRotateIntervalId) {
+    clearInterval(festivalRotateIntervalId);
   }
 });
 </script>
