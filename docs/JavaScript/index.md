@@ -72,7 +72,6 @@ recommend: false
 
 - [HTTP 缓存完全指南](./Http/http-cache-guide.md)
 - [HTTP2 完全指南](./Http/http2-guide.md)
-- [HTTP 缓存与 HTTP2 核心要点](./Http/http-cache-http2-core.md)
 
 # 性能优化
 

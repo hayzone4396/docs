@@ -1,628 +1,306 @@
 ---
-title: JavaScript 异步编程
-date: 2026-01-15
-categories:
+title: JavaScript 异步编程导航
+createTime: 2026-01-28 11:00:00
+tags:
   - JavaScript
+  - 异步编程
+  - Promise
+  - Event Loop
+permalink: /javascript/async-programming/
 ---
 
-# JavaScript 异步编程
+# JavaScript 异步编程导航
 
----
+## 📖 概述
 
-## 一、概述
+JavaScript 是一门单线程语言，异步编程是其核心特性之一。通过异步机制，JavaScript 可以在等待耗时操作（如网络请求、文件读取）完成时继续执行其他任务，避免阻塞主线程。
 
-### 什么是异步编程？
-
-异步编程是一种编程模式，允许程序在等待某些操作（如网络请求、文件读取、定时器等）完成时继续执行其他任务，而不是阻塞主线程。
-
-**核心概念：**
-
+**核心概念**：
 - **非阻塞**：不会阻塞主线程的执行
 - **事件驱动**：基于事件循环机制
 - **回调机制**：通过回调函数处理异步结果
 - **Promise**：更优雅的异步处理方式
 - **async/await**：同步风格的异步代码
 
----
+## 🎯 学习路径
 
-## 二、JavaScript 异步机制
-
-### 1. 单线程与事件循环
-
-JavaScript 是单线程语言，通过事件循环（Event Loop）实现异步操作。
-
-**事件循环工作原理：**
-
-```javascript
-console.log('1');
-
-setTimeout(() => {
-  console.log('2');
-}, 0);
-
-console.log('3');
-
-// 输出顺序：1 -> 3 -> 2
+```
+┌──────────────────────────────────────────────────┐
+│            JavaScript 异步编程学习路径             │
+├──────────────────────────────────────────────────┤
+│                                                   │
+│  第一步：理解异步机制                              │
+│  └─ JavaScript 异步机制深度解析                    │
+│                                                   │
+│  第二步：掌握 Promise                             │
+│  └─ Promise 完全指南                              │
+│                                                   │
+│  第三步：实战应用                                  │
+│  ├─ 标签切换竞态条件问题与解决方案                  │
+│  └─ WebSocket 完全指南                            │
+│                                                   │
+└──────────────────────────────────────────────────┘
 ```
 
-**执行顺序：**
+## 📚 深度文章
 
-1. 同步代码立即执行
-2. 异步任务进入任务队列
-3. 主线程空闲时从队列中取出任务执行
+### 1. JavaScript 异步机制深度解析
 
-### 2. 宏任务与微任务
+**适合人群**：想深入理解事件循环、宏任务、微任务的开发者
 
-**宏任务（Macro Task）：**
+**核心内容**：
+- JavaScript 为什么是单线程？
+- 事件循环（Event Loop）工作原理
+- 宏任务（Macro Task）vs 微任务（Micro Task）
+- setTimeout、setInterval 计时器原理
+- 常见面试题解析
 
-- setTimeout
-- setInterval
-- setImmediate（Node.js）
-- I/O 操作
-- UI 渲染
+**阅读时长**：约 15 分钟
 
-**微任务（Micro Task）：**
+👉 [阅读完整文章](./async-mechanism-deep-dive.md)
 
-- Promise.then/catch/finally
-- process.nextTick（Node.js）
-- MutationObserver
+### 2. Promise 完全指南
 
-**执行顺序：**
+**适合人群**：想系统学习 Promise 的开发者
+
+**核心内容**：
+- Promise 的三种状态（Pending、Fulfilled、Rejected）
+- Promise A+ 规范详解
+- Promise 链式调用原理
+- Promise 静态方法（all、race、allSettled、any）
+- 错误处理最佳实践
+- 手写 Promise 实现
+
+**阅读时长**：约 20 分钟
+
+👉 [阅读完整文章](./promise.md)
+
+### 3. 标签切换竞态条件问题与解决方案
+
+**适合人群**：遇到异步竞态问题的开发者
+
+**核心内容**：
+- 什么是竞态条件（Race Condition）
+- 标签切换场景的竞态问题
+- 解决方案：AbortController、请求标识、防抖节流
+- React 18 的解决方案（useTransition）
+
+**阅读时长**：约 10 分钟
+
+👉 [阅读完整文章](./tab-switch-race-condition.md)
+
+### 4. WebSocket 完全指南
+
+**适合人群**：需要实时通信的开发者
+
+**核心内容**：
+- WebSocket 协议原理
+- WebSocket vs HTTP 轮询
+- 心跳机制与断线重连
+- 实战案例：聊天室、实时通知
+
+**阅读时长**：约 15 分钟
+
+👉 [阅读完整文章](./websocket.md)
+
+## 🔧 快速参考
+
+### 异步编程的发展历程
+
+```
+回调函数（Callback）
+    ↓
+    问题：回调地狱（Callback Hell）
+    ↓
+Promise（ES6）
+    ↓
+    优势：链式调用、错误处理
+    ↓
+async/await（ES7）
+    ↓
+    优势：同步风格的异步代码
+```
+
+### 常见异步场景
+
+| 场景 | 推荐方案 | 示例文章 |
+|------|---------|---------|
+| **网络请求** | Promise + async/await | Promise 完全指南 |
+| **定时任务** | setTimeout/setInterval | 异步机制深度解析 |
+| **实时通信** | WebSocket | WebSocket 完全指南 |
+| **并发控制** | Promise.all/allSettled | Promise 完全指南 |
+| **竞态处理** | AbortController | 标签切换竞态问题 |
+
+### 事件循环执行顺序
 
 ```javascript
-console.log('start');
+console.log('1. 同步代码')
 
 setTimeout(() => {
-  console.log('setTimeout');
-}, 0);
+  console.log('4. 宏任务（setTimeout）')
+}, 0)
 
 Promise.resolve().then(() => {
-  console.log('Promise');
-});
+  console.log('3. 微任务（Promise）')
+})
 
-console.log('end');
+console.log('2. 同步代码')
 
-// 输出：start -> end -> Promise -> setTimeout
+// 输出顺序：1 → 2 → 3 → 4
+// 原理：同步代码 → 微任务队列 → 宏任务队列
 ```
 
----
-
-## 三、异步编程的发展历程
-
-### 1. 回调函数（Callback）
-
-**基本用法：**
+### Promise 基本用法
 
 ```javascript
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = { name: 'John', age: 30 };
-    callback(data);
-  }, 1000);
-}
-
-fetchData((data) => {
-  console.log(data);
-});
-```
-
-**回调地狱问题：**
-
-```javascript
-getData((data1) => {
-  processData(data1, (data2) => {
-    saveData(data2, (data3) => {
-      console.log(data3);
-    });
-  });
-});
-```
-
-**缺点：**
-
-- 代码嵌套层级深，难以维护
-- 错误处理困难
-- 无法使用 try/catch
-
----
-
-### 2. Promise
-
-**基本用法：**
-
-```javascript
+// 创建 Promise
 const promise = new Promise((resolve, reject) => {
+  // 异步操作
   setTimeout(() => {
-    const success = true;
+    const success = true
     if (success) {
-      resolve('操作成功');
+      resolve('成功的结果')
     } else {
-      reject('操作失败');
+      reject('失败的原因')
     }
-  }, 1000);
-});
+  }, 1000)
+})
 
+// 使用 Promise
 promise
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+  .then(result => console.log(result))
+  .catch(error => console.error(error))
+  .finally(() => console.log('完成'))
 ```
 
-**Promise 链式调用：**
+### async/await 语法糖
 
 ```javascript
-fetchData()
-  .then((data1) => processData(data1))
-  .then((data2) => saveData(data2))
-  .then((data3) => console.log(data3))
-  .catch((error) => console.error(error));
-```
+// Promise 写法
+function fetchData() {
+  return fetch('/api/data')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      return data
+    })
+    .catch(error => {
+      console.error(error)
+    })
+}
 
-**Promise 静态方法：**
-
-```javascript
-// Promise.all：所有 Promise 都成功才成功
-Promise.all([promise1, promise2, promise3])
-  .then((results) => console.log(results));
-
-// Promise.race：第一个完成的 Promise 的结果
-Promise.race([promise1, promise2])
-  .then((result) => console.log(result));
-
-// Promise.allSettled：所有 Promise 都完成（无论成功或失败）
-Promise.allSettled([promise1, promise2])
-  .then((results) => console.log(results));
-
-// Promise.any：第一个成功的 Promise 的结果
-Promise.any([promise1, promise2])
-  .then((result) => console.log(result));
-```
-
----
-
-### 3. async/await
-
-**基本用法：**
-
-```javascript
+// async/await 写法（更简洁）
 async function fetchData() {
   try {
-    const response = await fetch('/api/data');
-    const data = await response.json();
-    console.log(data);
+    const response = await fetch('/api/data')
+    const data = await response.json()
+    console.log(data)
+    return data
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
-
-fetchData();
 ```
 
-**async 函数的特点：**
+## 💡 学习建议
 
-- 返回一个 Promise
-- 可以使用 await 等待 Promise 结果
-- 可以使用 try/catch 捕获错误
+### 初学者路径
 
-**await 的使用规则：**
+1. **理解同步 vs 异步**
+   - 从 setTimeout 开始，理解异步的概念
+   - 阅读《异步机制深度解析》的前半部分
 
-```javascript
-// ✅ 正确：在 async 函数中使用
-async function example() {
-  const result = await promise;
-}
+2. **掌握 Promise 基础**
+   - 学习 Promise 的三种状态
+   - 练习 then/catch 链式调用
+   - 阅读《Promise 完全指南》
 
-// ❌ 错误：在普通函数中使用
-function example() {
-  const result = await promise; // SyntaxError
-}
-```
+3. **学习 async/await**
+   - 理解 async/await 是 Promise 的语法糖
+   - 练习改写 Promise 代码为 async/await
 
-**并行执行：**
+4. **实战练习**
+   - 封装网络请求（fetch/axios）
+   - 实现防抖节流
+   - 处理并发请求
 
-```javascript
-// 串行执行（慢）
-async function serial() {
-  const result1 = await promise1();
-  const result2 = await promise2();
-  const result3 = await promise3();
-}
+### 进阶路径
 
-// 并行执行（快）
-async function parallel() {
-  const [result1, result2, result3] = await Promise.all([
-    promise1(),
-    promise2(),
-    promise3()
-  ]);
-}
-```
+1. **深入事件循环**
+   - 掌握宏任务、微任务执行顺序
+   - 理解 Node.js 事件循环
+   - 解决复杂的执行顺序问题
+
+2. **Promise 高级用法**
+   - 手写 Promise 实现
+   - 理解 Promise A+ 规范
+   - 掌握 Promise 静态方法源码
+
+3. **解决实际问题**
+   - 竞态条件处理
+   - 请求取消与超时
+   - 并发控制与队列管理
+
+## 🔗 相关资源
+
+### 本站文章
+
+- [Promise 完全指南](./promise.md) - 系统学习 Promise
+- [JavaScript 异步机制深度解析](./async-mechanism-deep-dive.md) - 深入事件循环
+- [标签切换竞态条件问题与解决方案](./tab-switch-race-condition.md) - 实战案例
+- [WebSocket 完全指南](./websocket.md) - 实时通信
+- [WebRTC 完全指南](./webrtc.md) - 视频通话
+
+### 外部资源
+
+- [MDN - 异步 JavaScript](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous)
+- [JavaScript.info - Promise](https://javascript.info/promise-basics)
+- [Promise A+ 规范](https://promisesaplus.com/)
+- [Event Loop Visualizer](http://latentflip.com/loupe/) - 事件循环可视化
+
+## 🎓 常见问题
+
+### Q1: Promise 和 async/await 有什么区别？
+
+async/await 是 Promise 的语法糖，本质上还是 Promise。区别在于：
+- **Promise**：链式调用，then/catch 处理
+- **async/await**：同步风格，用 try/catch 处理错误
+
+👉 详见 [Promise 完全指南](./promise.md)
+
+### Q2: setTimeout(fn, 0) 为什么不是立即执行？
+
+因为 setTimeout 是宏任务，即使延迟设为 0，也要等当前同步代码和微任务队列执行完毕后才会执行。
+
+👉 详见 [异步机制深度解析](./async-mechanism-deep-dive.md)
+
+### Q3: 如何取消一个正在进行的 Promise？
+
+Promise 本身不支持取消，但可以使用 AbortController 配合 fetch 实现请求取消。
+
+👉 详见 [标签切换竞态条件问题](./tab-switch-race-condition.md)
+
+### Q4: Promise.all 和 Promise.allSettled 有什么区别？
+
+- **Promise.all**：所有 Promise 都成功才成功，有一个失败就失败
+- **Promise.allSettled**：等待所有 Promise 完成（无论成功或失败），返回所有结果
+
+👉 详见 [Promise 完全指南](./promise.md)
+
+## 📝 总结
+
+JavaScript 异步编程是前端开发的核心技能。建议按照以下顺序学习：
+
+1. 理解异步机制和事件循环
+2. 掌握 Promise 和 async/await
+3. 学习实战中的异步场景
+4. 深入源码和规范
+
+希望这个导航页能帮助你系统地掌握 JavaScript 异步编程！
 
 ---
 
-## 四、实际应用场景
-
-### 1. 网络请求
-
-**使用 fetch API：**
-
-```javascript
-async function getUserData(userId) {
-  try {
-    const response = await fetch(`/api/users/${userId}`);
-    if (!response.ok) {
-      throw new Error('网络请求失败');
-    }
-    const userData = await response.json();
-    return userData;
-  } catch (error) {
-    console.error('获取用户数据失败:', error);
-    throw error;
-  }
-}
-```
-
-**使用 axios：**
-
-```javascript
-import axios from 'axios';
-
-async function getUserData(userId) {
-  try {
-    const response = await axios.get(`/api/users/${userId}`);
-    return response.data;
-  } catch (error) {
-    console.error('获取用户数据失败:', error);
-    throw error;
-  }
-}
-```
-
-### 2. 文件操作（Node.js）
-
-```javascript
-const fs = require('fs').promises;
-
-async function readFile(filePath) {
-  try {
-    const content = await fs.readFile(filePath, 'utf8');
-    return content;
-  } catch (error) {
-    console.error('读取文件失败:', error);
-    throw error;
-  }
-}
-```
-
-### 3. 定时器
-
-```javascript
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function example() {
-  console.log('开始');
-  await delay(1000); // 等待 1 秒
-  console.log('1 秒后');
-}
-```
-
-### 4. 防抖与节流
-
-**防抖：**
-
-```javascript
-function debounce(func, delay) {
-  let timeoutId;
-  return function (...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-}
-```
-
-**节流：**
-
-```javascript
-function throttle(func, delay) {
-  let lastCall = 0;
-  return function (...args) {
-    const now = Date.now();
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      func.apply(this, args);
-    }
-  };
-}
-```
-
----
-
-## 五、最佳实践
-
-### 1. 错误处理
-
-**统一错误处理：**
-
-```javascript
-class ApiError extends Error {
-  constructor(message, statusCode) {
-    super(message);
-    this.statusCode = statusCode;
-  }
-}
-
-async function fetchData() {
-  try {
-    const response = await fetch('/api/data');
-    if (!response.ok) {
-      throw new ApiError('请求失败', response.status);
-    }
-    return await response.json();
-  } catch (error) {
-    if (error instanceof ApiError) {
-      console.error(`API 错误: ${error.message}`);
-    } else {
-      console.error('未知错误:', error);
-    }
-    throw error;
-  }
-}
-```
-
-### 2. 超时控制
-
-```javascript
-async function fetchWithTimeout(url, timeout = 5000) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-  try {
-    const response = await fetch(url, {
-      signal: controller.signal
-    });
-    clearTimeout(timeoutId);
-    return await response.json();
-  } catch (error) {
-    clearTimeout(timeoutId);
-    if (error.name === 'AbortError') {
-      throw new Error('请求超时');
-    }
-    throw error;
-  }
-}
-```
-
-### 3. 重试机制
-
-```javascript
-async function fetchWithRetry(url, maxRetries = 3, delay = 1000) {
-  for (let i = 0; i < maxRetries; i++) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-      return await response.json();
-    } catch (error) {
-      if (i === maxRetries - 1) {
-        throw error;
-      }
-      await new Promise(resolve => setTimeout(resolve, delay * (i + 1)));
-    }
-  }
-}
-```
-
-### 4. 并发控制
-
-```javascript
-async function concurrentLimit(tasks, limit = 3) {
-  const results = [];
-  const executing = [];
-
-  for (const task of tasks) {
-    const promise = task().then((result) => {
-      executing.splice(executing.indexOf(promise), 1);
-      return result;
-    });
-
-    results.push(promise);
-    executing.push(promise);
-
-    if (executing.length >= limit) {
-      await Promise.race(executing);
-    }
-  }
-
-  return Promise.all(results);
-}
-```
-
----
-
-## 六、常见问题与解决方案
-
-### 1. Promise 链中的错误丢失
-
-**问题：**
-
-```javascript
-Promise.resolve()
-  .then(() => {
-    throw new Error('错误');
-  })
-  .then(() => {
-    console.log('不会执行');
-  });
-```
-
-**解决：**
-
-```javascript
-Promise.resolve()
-  .then(() => {
-    throw new Error('错误');
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-### 2. async 函数中的错误处理
-
-**问题：**
-
-```javascript
-async function example() {
-  await Promise.reject('错误');
-  console.log('不会执行');
-}
-```
-
-**解决：**
-
-```javascript
-async function example() {
-  try {
-    await Promise.reject('错误');
-  } catch (error) {
-    console.error(error);
-  }
-  console.log('会执行');
-}
-```
-
-### 3. 循环中的异步操作
-
-**问题：**
-
-```javascript
-for (let i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 100);
-}
-// 输出：5, 5, 5, 5, 5
-```
-
-**解决：**
-
-```javascript
-// 方案 1：使用 let
-for (let i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 100);
-}
-
-// 方案 2：使用闭包
-for (var i = 0; i < 5; i++) {
-  ((i) => {
-    setTimeout(() => console.log(i), 100);
-  })(i);
-}
-
-// 方案 3：使用 async/await
-for (let i = 0; i < 5; i++) {
-  await new Promise(resolve => setTimeout(resolve, 100));
-  console.log(i);
-}
-```
-
----
-
-## 七、性能优化
-
-### 1. 避免不必要的 await
-
-**优化前：**
-
-```javascript
-async function example() {
-  const result1 = await promise1();
-  const result2 = await promise2();
-  const result3 = await promise3();
-}
-```
-
-**优化后：**
-
-```javascript
-async function example() {
-  const [result1, result2, result3] = await Promise.all([
-    promise1(),
-    promise2(),
-    promise3()
-  ]);
-}
-```
-
-### 2. 使用缓存
-
-```javascript
-const cache = new Map();
-
-async function fetchData(url) {
-  if (cache.has(url)) {
-    return cache.get(url);
-  }
-
-  const data = await fetch(url).then(res => res.json());
-  cache.set(url, data);
-  return data;
-}
-```
-
-### 3. 取消未完成的请求
-
-```javascript
-const controller = new AbortController();
-
-async function fetchData() {
-  try {
-    const response = await fetch('/api/data', {
-      signal: controller.signal
-    });
-    return await response.json();
-  } catch (error) {
-    if (error.name === 'AbortError') {
-      console.log('请求已取消');
-    }
-  }
-}
-
-// 取消请求
-controller.abort();
-```
-
----
-
-## 八、总结
-
-### 异步编程要点：
-
-1. **理解事件循环**：掌握宏任务和微任务的执行顺序
-2. **选择合适的工具**：根据场景选择回调、Promise 或 async/await
-3. **错误处理**：始终使用 try/catch 或 .catch() 处理错误
-4. **性能优化**：合理使用并行执行、缓存和取消机制
-5. **代码可读性**：优先使用 async/await 提高代码可读性
-
-### 推荐实践：
-
-- ✅ 优先使用 async/await
-- ✅ 始终处理错误
-- ✅ 合理使用 Promise.all 进行并行操作
-- ✅ 添加超时和重试机制
-- ✅ 避免回调地狱
-
----
-
-## 九、扩展阅读
-
-- [MDN: Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [MDN: async function](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)
-- [JavaScript 事件循环详解](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-- [Node.js 事件循环](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)
+**推荐阅读顺序**：
+1. [JavaScript 异步机制深度解析](./async-mechanism-deep-dive.md)
+2. [Promise 完全指南](./promise.md)
+3. [标签切换竞态条件问题与解决方案](./tab-switch-race-condition.md)

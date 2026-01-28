@@ -108,6 +108,10 @@ export default defineConfig({
           items: [
             { text: '概述', link: '/JavaScript/React/overview' },
             {
+              text: 'React 底层原理深度解析',
+              link: '/JavaScript/React/react-underlying-principles',
+            },
+            {
               text: '合成事件原理',
               link: '/JavaScript/React/synthetic-events',
             },
@@ -184,8 +188,8 @@ export default defineConfig({
           items: [
             { text: '概述', link: '/JavaScript/Vue/overview' },
             {
-              text: 'Vue3 核心原理深度解析',
-              link: '/JavaScript/Vue/vue3-core-concepts',
+              text: 'Vue 底层原理深度解析（Vue 2 & Vue 3）',
+              link: '/JavaScript/Vue/vue-underlying-principles',
             },
             {
               text: 'Teleport 传送门完全指南',
@@ -232,10 +236,6 @@ export default defineConfig({
               link: '/JavaScript/Vue/vue-router',
             },
             {
-              text: 'Proxy vs Object.defineProperty 深度对比',
-              link: '/JavaScript/Vue/proxy-vs-defineproperty',
-            },
-            {
               text: 'Vue 3 组件暴露机制 - expose 详解',
               link: '/JavaScript/Vue/setup-expose',
             },
@@ -259,10 +259,6 @@ export default defineConfig({
               link: '/JavaScript/Http/http-cache-guide',
             },
             { text: 'HTTP2 完全指南', link: '/JavaScript/Http/http2-guide' },
-            {
-              text: 'HTTP 缓存与 HTTP2 核心要点',
-              link: '/JavaScript/Http/http-cache-http2-core',
-            },
           ],
         },
         {
@@ -326,6 +322,14 @@ export default defineConfig({
         {
           text: '前端加密解密方案',
           link: '/Architecture/frontend-encryption',
+        },
+        {
+          text: '前端框架未来展望与新兴框架深度解析',
+          link: '/Architecture/future-framework-outlook',
+        },
+        {
+          text: '微前端完全指南',
+          link: '/Architecture/micro-frontend-guide',
         },
       ],
       '/AI/': [
