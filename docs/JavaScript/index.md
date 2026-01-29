@@ -27,7 +27,6 @@ recommend: false
 
 # React
 
-- [React 概述](./React/overview.md)
 - [React 合成事件原理](./React/synthetic-events.md)
 - [React Router 完全指南](./React/react-router.md)
 - [Redux 状态管理完全指南](./React/redux-guide.md)
@@ -41,6 +40,7 @@ recommend: false
 - [flushSync 同步更新](./React/flushSync.md)
 - [PureComponent 性能优化](./React/PureComponent.md)
 - [React 性能优化](./React/performance-optimization.md)
+- [React 并发模式控制完全指南](./React/react-concurrent-mode.md)
 - [useTransition 与 useDeferredValue](./React/useTransition-useDeferredValue.md)
 - [useReducer 复杂状态管理](./React/useReducer.md)
 - [高阶组件（HOC）详解](./React/higher-order-component.md)

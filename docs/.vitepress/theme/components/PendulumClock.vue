@@ -15,6 +15,10 @@
           { 'digital-mode-active': isDigitalMode },
           isDigitalMode ? `theme-${timeTheme.name}` : ''
         ]"
+        :style="isDigitalMode ? {
+          '--theme-color': timeTheme.colors[0],
+          '--theme-color-secondary': timeTheme.colors[1]
+        } : {}"
         @click="handleClockClick"
         :title="!isDigitalMode ? '点击切换到数字时钟' : '点击切换到模拟时钟'"
       >
@@ -846,7 +850,7 @@ onUnmounted(() => {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 使用outline创建双虚线效果 */
+/* 使用虚线边框，颜色跟随时段主题 */
 .digital-mode .clock-face::before,
 .clock-face.digital-mode-active::before {
   content: '';
@@ -856,9 +860,10 @@ onUnmounted(() => {
   width: calc(100% + 12px);
   height: calc(100% + 12px);
   border-radius: 26px;
-  border: 2.5px dashed;
+  border: 2.5px dashed var(--theme-color, #6366f1);
   pointer-events: none;
   opacity: 0.6;
+  box-sizing: border-box;
 }
 
 .digital-mode .clock-face::after,
@@ -870,35 +875,10 @@ onUnmounted(() => {
   width: calc(100% + 6px);
   height: calc(100% + 6px);
   border-radius: 23px;
-  border: 1.5px dashed;
+  border: 1.5px dashed var(--theme-color-secondary, #8b5cf6);
   pointer-events: none;
   opacity: 0.8;
-}
-
-/* 时段主题边框颜色 */
-.theme-morning::before,
-.theme-morning::after {
-  border-color: #fb923c;
-}
-
-.theme-forenoon::before,
-.theme-forenoon::after {
-  border-color: #06b6d4;
-}
-
-.theme-afternoon::before,
-.theme-afternoon::after {
-  border-color: #fbbf24;
-}
-
-.theme-evening::before,
-.theme-evening::after {
-  border-color: #f97316;
-}
-
-.theme-night::before,
-.theme-night::after {
-  border-color: #6366f1;
+  box-sizing: border-box;
 }
 
 .clock-face:hover {

@@ -13,7 +13,6 @@ permalink: /architecture/frontend-encryption/
 
 ## 📅 文档信息
 
-- **创建时间**：2026-01-27 18:08:56
 - **适用场景**：前端敏感数据传输加密、接口数据加密
 - **加密算法**：3DES (TripleDES)
 

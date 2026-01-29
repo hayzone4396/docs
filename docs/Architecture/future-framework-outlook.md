@@ -14,7 +14,6 @@ permalink: /architecture/future-framework-outlook/
 
 ## 📅 文档信息
 
-- **创建时间**：2026-01-28 10:30:00
 - **核心主题**：Svelte、Solid、Qwik 等新兴框架原理、设计理念、对比分析
 - **技术趋势**：编译时优化、细粒度响应式、0 runtime、渐进式加载
 

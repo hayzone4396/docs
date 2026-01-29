@@ -106,7 +106,6 @@ export default defineConfig({
           text: 'React',
           collapsed: true,
           items: [
-            { text: '概述', link: '/JavaScript/React/overview' },
             {
               text: 'React 底层原理深度解析',
               link: '/JavaScript/React/react-underlying-principles',
@@ -161,6 +160,10 @@ export default defineConfig({
               link: '/JavaScript/React/performance-optimization',
             },
             {
+              text: 'React 并发模式控制完全指南',
+              link: '/JavaScript/React/react-concurrent-mode',
+            },
+            {
               text: 'useTransition 与 useDeferredValue',
               link: '/JavaScript/React/useTransition-useDeferredValue',
             },
@@ -186,7 +189,6 @@ export default defineConfig({
           text: 'Vue',
           collapsed: true,
           items: [
-            { text: '概述', link: '/JavaScript/Vue/overview' },
             {
               text: 'Vue 底层原理深度解析（Vue 2 & Vue 3）',
               link: '/JavaScript/Vue/vue-underlying-principles',
