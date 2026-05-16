@@ -305,6 +305,7 @@ export default defineConfig({
         },
       ],
       '/Tools/': [
+        { text: '构建工具', link: '/Tools/Build' },
         { text: 'Git', link: '/Tools/Git' },
         { text: 'Vite', link: '/Tools/Vite' },
         { text: 'Webpack', link: '/Tools/Webpack' },
