@@ -311,6 +311,7 @@ export default defineConfig({
         { text: 'Webpack', link: '/Tools/Webpack' },
       ],
       '/Architecture/': [
+        { text: '工程化设计', link: '/Architecture/engineering' },
         { text: 'PNPM 相关问题', link: '/Architecture/PNPM' },
         { text: '设计模式', link: '/Architecture/design-patterns' },
         {

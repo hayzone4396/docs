@@ -7,6 +7,7 @@ updated: 2026-01-15 14:35:00
 
 # Architecture 相关问题
 
+- [工程化设计](./engineering.md)
 - [PNPM 相关问题](./PNPM.md)
 - [设计模式](./design-patterns.md)
 - [微服务架构](./microservices-architecture.md)
