@@ -67,6 +67,7 @@ recommend: false
 - [Vue Composables（组合式函数）完全指南](./Vue/composables.md)
 - [Vue 生命周期钩子完全指南](./Vue/lifecycle.md)
 - [Vue Router 完全指南](./Vue/vue-router.md)
+- [Vue 3 性能优化详解](./Vue/optimize.md)
 
 # HTTP
 

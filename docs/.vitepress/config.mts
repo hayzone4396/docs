@@ -241,6 +241,10 @@ export default defineConfig({
               text: 'Vue 3 组件暴露机制 - expose 详解',
               link: '/JavaScript/Vue/setup-expose',
             },
+            {
+              text: 'Vue 3 性能优化详解',
+              link: '/JavaScript/Vue/optimize',
+            },
           ],
         },
         {
