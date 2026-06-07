@@ -342,6 +342,7 @@ export default defineConfig({
         },
       ],
       '/AI/': [
+        { text: 'AI Agent 技术完全指南', link: '/AI/agent-guide' },
         { text: 'AI 大模型完全指南', link: '/AI/bigModel' },
         { text: '机器学习基础', link: '/AI/machine-learning-basics' },
         { text: '计算机视觉', link: '/AI/computer-vision' },

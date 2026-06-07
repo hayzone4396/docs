@@ -1,5 +1,6 @@
 # AI
 
+- [AI Agent 技术完全指南：从认知到实战](./agent-guide.md)
 - [AI 大模型与前端开发：从技术原理到团队落地完全指南](./bigModel.md)
 - [机器学习基础](./machine-learning-basics.md)
 - [计算机视觉](./computer-vision.md)
