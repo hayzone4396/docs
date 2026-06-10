@@ -106,3 +106,74 @@ strong {
     max-width: 1800px !important;
   }
 }
+
+/* 侧边栏美化 */
+.VPSidebarItem.level-0 {
+  margin-top: 1.2rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.5rem;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  color: var(--vp-c-brand) !important;
+  letter-spacing: 1px;
+}
+
+.VPSidebarItem.level-1 {
+  margin-top: 0.4rem;
+  padding: 4px 0;
+}
+
+.VPSidebarItem.level-1 .text {
+  font-size: 0.95rem;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.VPSidebarItem.level-1 .item:hover .text {
+  color: var(--vp-c-brand);
+  transform: translateX(6px);
+}
+
+/* 侧边栏二级菜单美化 */
+.VPSidebarItem.level-1 {
+  border-left: 1px solid var(--vp-c-divider);
+  margin-left: 0.8rem;
+  padding-left: 0.8rem;
+}
+
+.VPSidebarItem.level-1.is-active {
+  border-left-color: var(--vp-c-brand);
+}
+
+.VPSidebarItem.level-1 .item {
+  padding: 4px 0;
+  border-radius: 4px;
+}
+
+/* 侧边栏日期样式 */
+.sidebar-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--vp-c-text-3);
+  margin-top: 2px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* 侧边栏滚动条美化 */
+.VPSidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-divider);
+  border-radius: 10px;
+}
+
+.VPSidebar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
