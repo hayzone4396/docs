@@ -244,6 +244,8 @@ export default defineConfig({
             { text: '基础概述 <span class="sidebar-date">2026-01-14</span>', link: '/Nodejs/basic-overview' },
             { text: '异步编程 <span class="sidebar-date">2026-01-14</span>', link: '/Nodejs/async-programming' },
             { text: '模块解析策略 <span class="sidebar-date">2026-01-23</span>', link: '/Nodejs/module-resolution' },
+            { text: 'Runtime 基础与常用模块精析 <span class="sidebar-date">2026-10-05</span>', link: '/Nodejs/runtime-core-modules' },
+            { text: '网络层协议与服务开发 <span class="sidebar-date">2026-10-05</span>', link: '/Nodejs/network-protocols' },
           ],
         },
         {
